@@ -11,7 +11,7 @@ class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 48.h, horizontal: 24.w),
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 24.w),
       child: LayoutBuilder(
         builder: (context, constraints) {
           final isMobile = constraints.maxWidth < 700;
@@ -50,18 +50,105 @@ class HeaderSection extends StatelessWidget {
         Text('Hi I am', style: TextStyle(color: Colors.grey, fontSize: 24.sp)),
         Text(
           profile.name,
-          style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w600, color: AppColors.primary),
-        ),
-        SizedBox(height: 8.h),
-        Text(
-          profile.profile,
           style: TextStyle(
-            fontSize: isMobile ? 24.sp : 36.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.orange,
+            fontSize: 32.sp,
+            fontWeight: FontWeight.w600,
+            color: AppColors.primary,
           ),
         ),
+        SizedBox(height: 8.h),
+        RichText(
+          text: TextSpan(
+            style: TextStyle(
+              fontSize: 100.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+            children: [
+              TextSpan(text: '${profile.profile.split(' ').first} \n'),
+              TextSpan(
+                text:
+                    '\t \t \t \t ${profile.profile.split(' ').skip(1).join(' ')}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ),
+        Text(
+          'As a Flutter developer with 4+ years of experience, I specialize in building beautiful, responsive, and high-performance mobile and web applications. From leading teams to delivering complete cross-platform solutions, I focus on clean architecture, performance optimization, and user-centric design.',
+          style: TextStyle(fontSize: 21.sp, color: AppColors.white),
+        ),
         SizedBox(height: 24.h),
+        // Wrap(
+        //   spacing: 12.w,
+        //   children:
+        //       profile.socialLinks.map((social) {
+        //         return InkWell(
+        //           onTap: () => launchUrl(Uri.parse(social.link)),
+        //           child: Image.asset(social.icon, width: 28.w),
+        //         );
+        //       }).toList(),
+        // ),
+        SizedBox(height: 24.h),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+            backgroundColor: AppColors.primary,
+          ),
+          onPressed: () => launchUrl(Uri.parse("mailto:${profile.email}")),
+          child: Text(
+            "Hire Me",
+            style: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColors.white,
+            ),
+          ),
+        ),
+        // Row(
+        //   children: [
+        //     ElevatedButton(
+        //       style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+        //       onPressed: () => launchUrl(Uri.parse("mailto:${profile.email}")),
+        //       child: const Text("Hire Me"),
+        //     ),
+        //     SizedBox(width: 16.w),
+        //     OutlinedButton(
+        //       onPressed: () => launchUrl(Uri.parse(profile.cvLink)),
+        //       child: const Text("Download CV"),
+        //     ),
+        //   ],
+        // ),
+        // SizedBox(height: 32.h),
+        // Container(
+        //   padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+        //   decoration: BoxDecoration(
+        //     color: Colors.grey.shade900,
+        //     borderRadius: BorderRadius.circular(12.r),
+        //   ),
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //     children: [
+        //       _buildStat("5+", "Experiences"),
+        //       _buildStat("20+", "Project done"),
+        //       _buildStat("80+", "Happy Clients"),
+        //     ],
+        //   ),
+        // ),
+      ],
+    );
+  }
+
+  Widget _buildPhoto() {
+    return Column(
+      children: [
+        Image.asset(
+          profile.photo,
+          width: 400.w,
+        ).animate().fadeIn(duration: 600.ms).scale(),
+        SizedBox(height: 30.h),
         Wrap(
           spacing: 12.w,
           children:
@@ -72,46 +159,8 @@ class HeaderSection extends StatelessWidget {
                 );
               }).toList(),
         ),
-        SizedBox(height: 24.h),
-        Row(
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-              onPressed: () => launchUrl(Uri.parse("mailto:${profile.email}")),
-              child: const Text("Hire Me"),
-            ),
-            SizedBox(width: 16.w),
-            OutlinedButton(
-              onPressed: () => launchUrl(Uri.parse(profile.cvLink)),
-              child: const Text("Download CV"),
-            ),
-          ],
-        ),
-        SizedBox(height: 32.h),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade900,
-            borderRadius: BorderRadius.circular(12.r),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _buildStat("5+", "Experiences"),
-              _buildStat("20+", "Project done"),
-              _buildStat("80+", "Happy Clients"),
-            ],
-          ),
-        ),
       ],
     );
-  }
-
-  Widget _buildPhoto() {
-    return Image.asset(
-      profile.photo,
-      width: 450.w,
-    ).animate().fadeIn(duration: 600.ms).scale();
   }
   // Widget _buildPhoto() {
   //   return Stack(
