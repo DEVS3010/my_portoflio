@@ -10,7 +10,7 @@ final profile = ProfileModel(
   cvLink: 'https://drive.google.com/your-cv-link',
   logo: 'assets/images/logo.png',
   photo: 'assets/images/profile.png',
-  profile: 'Flutter Developer | Mobile Team Lead',
+  profile: 'Software Engineer | Senior Flutter Developer',
   country: 'Saudi Arabia',
 
   profileSummary:

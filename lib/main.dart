@@ -1,4 +1,7 @@
+// main.dart with AppColors theme
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/app_colors.dart';
 import 'ui/pages/home_page.dart';
 
 void main() {
@@ -10,11 +13,22 @@ class PortfolioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Mahmoud Alaa Portfolio',
-      theme: ThemeData.dark(useMaterial3: true),
-      home: const HomePage(),
+    return ScreenUtilInit(
+      designSize: const Size(1440, 1024),
+      builder: (_, __) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Mahmoud Alaa Portfolio',
+        theme: ThemeData.dark(useMaterial3: true).copyWith(
+          scaffoldBackgroundColor: AppColors.background,
+          primaryColor: AppColors.primary,
+          cardColor: AppColors.surface,
+          textTheme: Typography.whiteMountainView.apply(
+            bodyColor: AppColors.white,
+            displayColor: AppColors.white,
+          ),
+        ),
+        home: const HomePage(),
+      ),
     );
   }
 }

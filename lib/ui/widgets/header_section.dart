@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:url_launcher/url_launcher.dart';
-
+import 'package:my_portfolio/core/app_colors.dart';
 import '../../../data/portfolio_data.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -11,111 +11,132 @@ class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 48.h),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          /// Left Side (Text Content)
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Hi I am', style: TextStyle(color: Colors.grey, fontSize: 18.sp)),
-                Text(profile.name,
-                    style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500)),
-                SizedBox(height: 8.h),
-                Text(
-                  profile.profile,
-                  style: TextStyle(
-                    fontSize: 36.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.orange,
-                  ),
-                ).animate().fadeIn(duration: 400.ms).slideX(begin: -0.1),
-                SizedBox(height: 24.h),
+      padding: EdgeInsets.symmetric(vertical: 48.h, horizontal: 24.w),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isMobile = constraints.maxWidth < 700;
 
-                /// Social Icons
-                Row(
-                  children: profile.socialLinks.map((social) {
-                    return Padding(
-                      padding: EdgeInsets.only(right: 12.w),
-                      child: InkWell(
-                        onTap: () => launchUrl(Uri.parse(social.link)),
-                        child: Image.asset(social.icon, width: 28.w),
-                      ),
-                    );
-                  }).toList(),
-                ),
-
-                SizedBox(height: 24.h),
-
-                /// Buttons
-                Row(
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange,
-                        padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
-                      ),
-                      onPressed: () {
-                        launchUrl(Uri.parse("mailto:${profile.email}"));
-                      },
-                      child: const Text("Hire Me"),
-                    ),
-                    SizedBox(width: 16.w),
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
-                        side: const BorderSide(color: Colors.white),
-                      ),
-                      onPressed: () => launchUrl(Uri.parse(profile.cvLink)),
-                      child: const Text("Download CV"),
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: 32.h),
-
-                /// Stats
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade900,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              isMobile
+                  ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      _buildStat("5+", "Experiences"),
-                      _buildStat("20+", "Project done"),
-                      _buildStat("80+", "Happy Clients"),
+                      _buildText(context, isMobile),
+                      const SizedBox(height: 32),
+                      _buildPhoto(),
+                    ],
+                  )
+                  : Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(child: _buildText(context, isMobile)),
+                      SizedBox(width: 40.w),
+                      _buildPhoto(),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ),
-
-          SizedBox(width: 32.w),
-
-          /// Right Side (Profile Image)
-          Expanded(
-            child: Center(
-              child: CircleAvatar(
-                radius: 150.r,
-                backgroundImage: AssetImage(profile.photo),
-              ).animate().fadeIn(duration: 600.ms).scale(),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
 
+  Widget _buildText(BuildContext context, bool isMobile) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Hi I am', style: TextStyle(color: Colors.grey, fontSize: 24.sp)),
+        Text(
+          profile.name,
+          style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w600, color: AppColors.primary),
+        ),
+        SizedBox(height: 8.h),
+        Text(
+          profile.profile,
+          style: TextStyle(
+            fontSize: isMobile ? 24.sp : 36.sp,
+            fontWeight: FontWeight.bold,
+            color: Colors.orange,
+          ),
+        ),
+        SizedBox(height: 24.h),
+        Wrap(
+          spacing: 12.w,
+          children:
+              profile.socialLinks.map((social) {
+                return InkWell(
+                  onTap: () => launchUrl(Uri.parse(social.link)),
+                  child: Image.asset(social.icon, width: 28.w),
+                );
+              }).toList(),
+        ),
+        SizedBox(height: 24.h),
+        Row(
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+              onPressed: () => launchUrl(Uri.parse("mailto:${profile.email}")),
+              child: const Text("Hire Me"),
+            ),
+            SizedBox(width: 16.w),
+            OutlinedButton(
+              onPressed: () => launchUrl(Uri.parse(profile.cvLink)),
+              child: const Text("Download CV"),
+            ),
+          ],
+        ),
+        SizedBox(height: 32.h),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade900,
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _buildStat("5+", "Experiences"),
+              _buildStat("20+", "Project done"),
+              _buildStat("80+", "Happy Clients"),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPhoto() {
+    return Image.asset(
+      profile.photo,
+      width: 450.w,
+    ).animate().fadeIn(duration: 600.ms).scale();
+  }
+  // Widget _buildPhoto() {
+  //   return Stack(
+  //     alignment: Alignment.bottomCenter,
+  //     children: [
+  //       CircleAvatar(
+  //         radius: 350.r,
+  //         backgroundColor: AppColors.white.withValues(alpha: 0.4),
+  //       ).animate().fadeIn(duration: 600.ms).scale(),
+  //       CircleAvatar(
+  //         radius: 350.r,
+  //         backgroundImage: AssetImage(profile.photo),
+  //         backgroundColor: Colors.transparent,
+  //       ).animate().fadeIn(duration: 600.ms).scale(),
+  //     ],
+  //   );
+  // }
+
   Widget _buildStat(String value, String label) {
     return Column(
       children: [
-        Text(value, style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold)),
+        Text(
+          value,
+          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+        ),
         SizedBox(height: 4.h),
         Text(label, style: TextStyle(fontSize: 14.sp, color: Colors.grey)),
       ],
