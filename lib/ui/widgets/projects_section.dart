@@ -1,134 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:my_portfolio/ui/widgets/project_card_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../core/app_colors.dart';
+import '../../../data/portfolio_data.dart';
+import 'clipped_image_widget.dart';
 
-import '../../data/portfolio_data.dart';
-
-class ProjectsSection extends StatelessWidget {
+class ProjectsSection extends StatefulWidget {
   const ProjectsSection({super.key});
 
   @override
+  State<ProjectsSection> createState() => _ProjectsSectionState();
+}
+
+class _ProjectsSectionState extends State<ProjectsSection> {
+  final int _visibleCount = 3;
+
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 48.h),
+    final isExpanded = _visibleCount >= profile.projects.length;
+    final visibleProjects = profile.projects.take(_visibleCount).toList();
+
+    return Container(
+      color: AppColors.background,
+      width: double.infinity,
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 64.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Projects',
-            style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 16.h),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final isWide = constraints.maxWidth > 600;
-              return Column(
-                children:
-                    profile.projects.map((project) {
-                      return Card(
-                        margin: EdgeInsets.only(bottom: 16.h),
-                        color: Colors.white10,
-                        child: Padding(
-                          padding: EdgeInsets.all(16.w),
-                          child:
-                              isWide
-                                  ? Row(
-                                    children: [
-                                      Image.asset(
-                                        project.image,
-                                        width: 120.w,
-                                        fit: BoxFit.cover,
-                                      ),
-                                      SizedBox(width: 24.w),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              project.title,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18.sp,
-                                              ),
-                                            ),
-                                            SizedBox(height: 8.h),
-                                            Text(project.description),
-                                            SizedBox(height: 6.h),
-                                            Wrap(
-                                              spacing: 8.w,
-                                              children:
-                                                  project.tags
-                                                      .map(
-                                                        (tag) => Chip(
-                                                          label: Text(tag),
-                                                        ),
-                                                      )
-                                                      .toList(),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      IconButton(
-                                        icon: const Icon(Icons.open_in_new),
-                                        onPressed:
-                                            () => launchUrl(
-                                              Uri.parse(project.link),
-                                            ),
-                                      ),
-                                    ],
-                                  )
-                                  : Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Center(
-                                        child: Image.asset(
-                                          project.image,
-                                          height: 160.h,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      SizedBox(height: 12.h),
-                                      Text(
-                                        project.title,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18.sp,
-                                        ),
-                                      ),
-                                      SizedBox(height: 8.h),
-                                      Text(project.description),
-                                      SizedBox(height: 6.h),
-                                      Wrap(
-                                        spacing: 8.w,
-                                        children:
-                                            project.tags
-                                                .map(
-                                                  (tag) =>
-                                                      Chip(label: Text(tag)),
-                                                )
-                                                .toList(),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: TextButton.icon(
-                                          onPressed:
-                                              () => launchUrl(
-                                                Uri.parse(project.link),
-                                              ),
-                                          icon: const Icon(Icons.open_in_new),
-                                          label: const Text("Open"),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                        ),
-                      ).animate().fadeIn();
-                    }).toList(),
-              );
-            },
+            style: TextStyle(
+              fontSize: 32.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColors.white,
+            ),
+          ).animate().fadeIn().slideY(begin: 0.1),
+
+          FancyClippedImage(
+            imagePath: profile.projects.first.image,
+            width: 500,
+            height: 250,
           ),
         ],
       ),
