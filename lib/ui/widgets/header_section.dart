@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:my_portfolio/core/app_colors.dart';
 import '../../../data/portfolio_data.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -75,7 +76,7 @@ class HeaderSection extends StatelessWidget {
           ),
         ),
         Text(
-          'As a Flutter developer with 4+ years of experience, I specialize in building beautiful, responsive, and high-performance mobile and web applications. From leading teams to delivering complete cross-platform solutions, I focus on clean architecture, performance optimization, and user-centric design.',
+          profile.profileSummary,
           style: TextStyle(fontSize: 21.sp, color: AppColors.white),
         ),
         SizedBox(height: 24.h),
@@ -121,22 +122,25 @@ class HeaderSection extends StatelessWidget {
         //     ),
         //   ],
         // ),
-        // SizedBox(height: 32.h),
-        // Container(
-        //   padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
-        //   decoration: BoxDecoration(
-        //     color: Colors.grey.shade900,
-        //     borderRadius: BorderRadius.circular(12.r),
-        //   ),
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //     children: [
-        //       _buildStat("5+", "Experiences"),
-        //       _buildStat("20+", "Project done"),
-        //       _buildStat("80+", "Happy Clients"),
-        //     ],
-        //   ),
-        // ),
+        SizedBox(height: 32.h),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+          height: 150.h,
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _buildStat("5+", "Experiences"),
+              VerticalDivider(color: AppColors.grey),
+              _buildStat("20+", "Project done"),
+              VerticalDivider(color: AppColors.grey),
+              _buildStat("80+", "Happy Clients"),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -155,7 +159,14 @@ class HeaderSection extends StatelessWidget {
               profile.socialLinks.map((social) {
                 return InkWell(
                   onTap: () => launchUrl(Uri.parse(social.link)),
-                  child: Image.asset(social.icon, width: 28.w),
+                  child: SvgPicture.asset(
+                    social.icon,
+                    width: 28.w,
+                    colorFilter: ColorFilter.mode(
+                      AppColors.white,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                 );
               }).toList(),
         ),
@@ -184,10 +195,14 @@ class HeaderSection extends StatelessWidget {
       children: [
         Text(
           value,
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 24.sp,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primary,
+          ),
         ),
         SizedBox(height: 4.h),
-        Text(label, style: TextStyle(fontSize: 14.sp, color: Colors.grey)),
+        Text(label, style: TextStyle(fontSize: 20.sp, color: AppColors.grey)),
       ],
     );
   }

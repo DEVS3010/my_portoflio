@@ -14,22 +14,22 @@ final profile = ProfileModel(
   country: 'Saudi Arabia',
 
   profileSummary:
-      'I am a Flutter developer with 4+ years of experience delivering production-grade apps with clean architecture and optimized performance.',
+      'I build clean, scalable, and visually stunning Flutter applications for mobile, web, and desktop. My passion lies in transforming complex ideas into smooth, interactive experiences.',
 
   about:
-      'I specialize in building scalable and elegant mobile applications using Flutter. I’ve led teams, mentored junior developers, and published over 10 apps across various industries including e-commerce, car rentals, and fintech.',
+      "I'm a dedicated Flutter developer with over 4 years of experience delivering high-quality, responsive apps across platforms. My work spans from leading teams to building apps used by thousands, such as Quran platforms, E-commerce apps, and productivity tools. I care deeply about clean architecture, performance, and creating user-first experiences. I’ve also represented my teams at events like Leap2024 and Intersec.",
 
   socialLinks: [
     SocialIModel(
-      icon: 'assets/icons/github.png',
+      icon: 'assets/icons/github.svg',
       link: 'https://github.com/MahmoudAlaa22',
     ),
     SocialIModel(
-      icon: 'assets/icons/linkedin.png',
+      icon: 'assets/icons/linkedIn.svg',
       link: 'https://linkedin.com/in/MahmoudAlaa',
     ),
     SocialIModel(
-      icon: 'assets/icons/email.png',
+      icon: 'assets/icons/email.svg',
       link: 'mailto:mahmoud3laa2210@gmail.com',
     ),
   ],
