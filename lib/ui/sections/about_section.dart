@@ -15,7 +15,7 @@ class AboutSection extends StatelessWidget {
       color: AppColors.background,
       width: double.infinity,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'About Me',
@@ -24,6 +24,7 @@ class AboutSection extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: AppColors.white,
             ),
+            
           ).animate().fadeIn(duration: 500.ms).slideY(begin: 0.1),
 
           SizedBox(height: 24.h),

@@ -53,9 +53,27 @@ final profile = ProfileModel(
     // ),
     ExperienceModel(
       title: 'Flutter Developer',
-      description: 'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
-      image: 'assets/images/travel.png',
-      type: 'Full-time',
+      description:
+          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
+      company: 'TraveL',
+      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
+      duration: 'Mar 2023 – Present',
+      isCurrent: true,
+    ),
+    ExperienceModel(
+      title: 'Flutter Developer',
+      description:
+          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
+      company: 'TraveL',
+      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
+      duration: '2021 - 2022',
+    ),
+    ExperienceModel(
+      title: 'Flutter Developer',
+      description:
+          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
+      company: 'TraveL',
+      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
       duration: '2021 - 2022',
     ),
   ],
@@ -63,43 +81,60 @@ final profile = ProfileModel(
   projects: [
     ProjectModel(
       title: 'Quran TV App',
-      description: 'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
+      description:
+          'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
       image: 'assets/projects/quran_tv.jpeg',
+      images: [
+        'assets/projects/quran_tv.jpeg',
+        'assets/projects/quran_tv.jpeg',
+        'assets/projects/quran_tv.jpeg',
+        'assets/projects/quran_tv.jpeg',
+      ],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
     ProjectModel(
       title: 'Quran TV App',
-      description: 'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
+      description:
+          'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
       image: 'assets/projects/quran_tv.jpeg',
+      images: ['assets/projects/quran_tv.jpeg'],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
     ProjectModel(
       title: 'Quran TV App',
-      description: 'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
+      description:
+          'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
       image: 'assets/projects/quran_tv.jpeg',
+      images: ['assets/projects/quran_tv.jpeg'],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
     ProjectModel(
       title: 'Quran TV App',
-      description: 'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
+      description:
+          'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
       image: 'assets/projects/quran_tv.jpeg',
+      images: ['assets/projects/quran_tv.jpeg'],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
     ProjectModel(
       title: 'Quran TV App',
-      description: 'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
+      description:
+          'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
       image: 'assets/projects/quran_tv.jpeg',
+      images: ['assets/projects/quran_tv.jpeg'],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
     ProjectModel(
       title: 'Quran TV App',
-      description: 'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
+      description:
+          'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
       image: 'assets/projects/quran_tv.jpeg',
+      images: ['assets/projects/quran_tv.jpeg'],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),

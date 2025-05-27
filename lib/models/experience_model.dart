@@ -1,15 +1,17 @@
 class ExperienceModel {
   final String title;
-  final String description;
-  final String type;
+  final String company;
   final String duration;
-  final String image;
+  final String description;
+  final List<String> technologies;
+  final bool isCurrent;
 
   ExperienceModel({
     required this.title,
-    required this.description,
-    required this.image,
-    required this.type,
+    required this.company,
     required this.duration,
+    required this.description,
+    required this.technologies,
+    this.isCurrent = false,
   });
 }
