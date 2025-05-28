@@ -82,7 +82,6 @@ final profile = ProfileModel(
       company: 'TraveL',
       technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
       duration: '2021 – 2022',
-      
     ),
     ExperienceModel(
       title: 'Flutter Developer',
@@ -99,7 +98,7 @@ final profile = ProfileModel(
       company: 'TraveL',
       technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
       duration: 'Mar 2023 – Present',
-      isCurrent: true
+      isCurrent: true,
     ),
   ],
 
