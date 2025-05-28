@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:my_portfolio/ui/components/project_card_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
 import '../../../data/portfolio_data.dart';
 import '../../core/app_text_styles.dart';
@@ -16,15 +15,13 @@ class ProjectsSection extends StatefulWidget {
 }
 
 class _ProjectsSectionState extends State<ProjectsSection> {
-  final int _visibleCount = 3;
 
   @override
   Widget build(BuildContext context) {
-    final isExpanded = _visibleCount >= profile.projects.length;
     final isMobile = Responsive.isMobile(context);
 
     return Container(
-      color: AppColors.background,
+      color: AppColors.surface,
       
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 64.h),
       child: Column(
@@ -49,7 +46,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           ),
           SizedBox(height: 20.h),
           SizedBox(
-            height: 700.h,
+            height: isMobile? 500.h : 700.h,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder:

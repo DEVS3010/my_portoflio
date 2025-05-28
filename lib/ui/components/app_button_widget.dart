@@ -40,7 +40,7 @@ class AppButtonWidget extends StatelessWidget {
           if (icon != null)
             Padding(
               padding: EdgeInsets.only(right: 8.0.w),
-              child: Icon(icon, size: 24.0.sp, color: AppColors.white),
+              child: Icon(icon, size: 24.0, color: AppColors.white),
             ),
 
           Text(

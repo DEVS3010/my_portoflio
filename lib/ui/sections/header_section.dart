@@ -89,8 +89,7 @@ class HeaderSection extends StatelessWidget {
           style:
               isMobile ? AppTextStyles.font14White : AppTextStyles.font21White,
         ),
-
-        SizedBox(height: 40.h),
+        isMobile ? SizedBox(height: 20.h) : SizedBox(height: 40.h),
 
         Row(
           children: [

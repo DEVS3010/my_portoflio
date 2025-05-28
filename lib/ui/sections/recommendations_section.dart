@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
+import '../../core/app_text_styles.dart';
+import '../../core/responsive_helper.dart';
 import '../../data/recommendations_data.dart';
 
 class RecommendationsSection extends StatefulWidget {
@@ -18,6 +21,7 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
     return Container(
       color: AppColors.background,
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 64.h),
@@ -26,23 +30,23 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
         children: [
           Text(
             'Recommendations',
-            style: TextStyle(
-              fontSize: 32.sp,
-              fontWeight: FontWeight.bold,
-              color: AppColors.white,
-            ),
-          ),
+            style: isMobile
+                    ? AppTextStyles.font21White.copyWith(
+                      fontWeight: FontWeight.bold,
+                    )
+                    : AppTextStyles.font32WhiteBold,
+          ).animate().fadeIn().slideY(begin: 0.1),
           SizedBox(height: 12.h),
           Text(
             'Here’s what people say about working with me.',
             style: TextStyle(fontSize: 14.sp, color: AppColors.text),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 40.h),
+          SizedBox(height: isMobile ? 20.h : 40.h),
 
           /// Scrollable PageView
           SizedBox(
-            height: 350.h,
+            height:  isMobile ? 250.h : 350.h,
             child: PageView.builder(
               controller: _pageController,
               itemCount: recommendations.length,
@@ -67,19 +71,10 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 36.r,
+                        radius: isMobile ? 25.r : 36.r,
                         backgroundImage: NetworkImage(testimonial.image),
                       ),
-                      SizedBox(height: 20.h),
-                      Text(
-                        '"${testimonial.comment}"',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          color: AppColors.text,
-                        ),
-                      ),
-                      SizedBox(height: 12.h),
+                      SizedBox(height: isMobile ? 12.h : 20.h),
                       Text(
                         testimonial.name,
                         style: TextStyle(
@@ -90,8 +85,13 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                       ),
                       Text(
                         testimonial.role,
-                        style: TextStyle(
-                          fontSize: 12.sp,
+                        style: isMobile ? AppTextStyles.font12Text : AppTextStyles.font12Text,
+                      ),
+                      SizedBox(height: isMobile ? 6.h : 12.h),
+                      Text(
+                        '"${testimonial.comment}"',
+                        textAlign: TextAlign.center,
+                        style: isMobile ? AppTextStyles.font12Text : AppTextStyles.font14.copyWith(
                           color: AppColors.text,
                         ),
                       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_portfolio/core/app_text_styles.dart';
 import 'package:my_portfolio/ui/layout/navbar_and_footer.dart';
 
 import '../../data/sections_data.dart';
@@ -100,6 +99,10 @@ class _HomePageState extends State<HomePage> {
                     KeyedSubtree(
                       key: GlobalKey(),
                       child: sections[5].section,
+                    ),
+                    KeyedSubtree(
+                      key: GlobalKey(),
+                      child: sections[6].section,
                     ),
                     // ...sections.map((section) {
                     //   final key = sectionKeys[section.name];

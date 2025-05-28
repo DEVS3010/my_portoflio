@@ -24,10 +24,10 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
     final isMobile = Responsive.isMobile(context);
 
     return Container(
-      width: isMobile ? 250.w : 450.w,
-      height: 700.h,
+      width: isMobile ? 200.w : 450.w,
+      height:  isMobile ? 500.h : 700.h,
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: AppColors.background,
         borderRadius: BorderRadius.circular(15.r),
         boxShadow: [
           BoxShadow(
@@ -38,10 +38,11 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /// Image Carousel
           SizedBox(
-            height: 400.h,
+            height: isMobile ? 200.h : 400.h,
             child: PageView.builder(
               itemCount: project.images.length,
               onPageChanged: (index) => setState(() => _activeIndex = index),
@@ -98,7 +99,7 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
                 Text(
                   project.description,
                   style: TextStyle(fontSize: 13.sp, color: AppColors.text),
-                  maxLines: 2,
+                  maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(height: 12.h),
@@ -114,7 +115,31 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
           ),
 
           /// Buttons
+          isMobile?
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppButtonWidget(
+                  icon: Icons.code,
+                  title: 'Code',
+                  onPressed: () => launchUrl(Uri.parse(project.link)),
+                  color: AppColors.primary,
+                ),
+                SizedBox(height: 8.w),
+                AppButtonWidget(
+                  icon: Icons.open_in_new,
+                  title: 'Live Demo',
+                  onPressed: () => launchUrl(Uri.parse(project.link)),
+                  color: AppColors.primary,
+                  hasBorder: true,
+                ),
+              ],
+            ),
+          ):
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppButtonWidget(
                 icon: Icons.code,
@@ -122,7 +147,7 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
                 onPressed: () => launchUrl(Uri.parse(project.link)),
                 color: AppColors.primary,
               ),
-              SizedBox(width: 8.w),
+              SizedBox(width: 16.w),
               AppButtonWidget(
                 icon: Icons.open_in_new,
                 title: 'Live Demo',

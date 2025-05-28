@@ -130,7 +130,6 @@ Widget _logoInTheCenter() {
             fontSize: 16.sp,
           ),
         ),
-        SizedBox(width: 32.w),
       ],
     ),
   );
@@ -149,7 +148,7 @@ class NavbarDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: const BoxDecoration(color: Colors.black87),
+            decoration:  BoxDecoration(color: AppColors.background),
             child: _logoInTheCenter(),
           ),
           ...sectionKeys.keys.map(
