@@ -1,3 +1,4 @@
+import '../core/image_assets.dart';
 import '../models/profile_model.dart';
 import '../models/social_model.dart';
 import '../models/skill_model.dart';
@@ -9,7 +10,7 @@ final profile = ProfileModel(
   email: 'mahmoud3laa2210@gmail.com',
   cvLink: 'https://drive.google.com/your-cv-link',
   logo: 'assets/images/logo.png',
-  photo: 'assets/images/profile.png',
+  photo: AppImages.png.profile,
   profile: 'Software Engineer',
   country: 'Saudi Arabia',
 
@@ -21,23 +22,46 @@ final profile = ProfileModel(
 
   socialLinks: [
     SocialIModel(
-      icon: 'assets/icons/github.svg',
+      icon: AppImages.svg.github,
       link: 'https://github.com/MahmoudAlaa22',
     ),
     SocialIModel(
-      icon: 'assets/icons/linkedIn.svg',
+      icon: AppImages.svg.linkedIn,
       link: 'https://linkedin.com/in/MahmoudAlaa',
     ),
     SocialIModel(
-      icon: 'assets/icons/email.svg',
+      icon: AppImages.svg.email,
       link: 'mailto:mahmoud3laa2210@gmail.com',
     ),
   ],
 
   skills: [
-    SkillModel(name: 'Flutter', icon: 'assets/icons/flutter.svg'),
-    SkillModel(name: 'Dart', icon: 'assets/icons/dart.svg'),
-    SkillModel(name: 'Firebase', icon: 'assets/icons/firebase.svg'),
+    SkillModel(name: 'Flutter', icon: AppImages.svg.flutter),
+    SkillModel(name: 'Dart', icon: AppImages.svg.dart),
+    SkillModel(name: 'Firebase', icon: AppImages.svg.firebase),
+    SkillModel(name: 'BLoC', icon: AppImages.svg.bloc),
+    SkillModel(name: 'Figma', icon: AppImages.svg.figma),
+    SkillModel(name: 'Git', icon: AppImages.svg.git),
+    SkillModel(name: 'Github', icon: AppImages.svg.github),
+    SkillModel(
+      name: 'Google Play Console',
+      icon: AppImages.svg.googlePlayConsole,
+    ),
+    SkillModel(name: 'Postman', icon: AppImages.svg.postman),
+    SkillModel(name: 'VS Code', icon: AppImages.svg.vsCode),
+    SkillModel(name: 'Android Studio', icon: AppImages.svg.androidStudio),
+    SkillModel(name: 'SQFLITE & Hive', icon: AppImages.png.database),
+    SkillModel(
+      name: 'Augmented Reality(AR)',
+      icon: AppImages.png.augmentedReality,
+    ),
+    SkillModel(name: 'TDD'),
+    SkillModel(name: 'AR'),
+    SkillModel(name: 'Animation'),
+    SkillModel(name: 'Provider'),
+    SkillModel(name: 'Rest API'),
+    SkillModel(name: 'Localization'),
+    SkillModel(name: 'Notification'),
     // SkillModel(name: 'Node.js', icon: 'assets/icons/nodejs.svg'),
     // SkillModel(name: 'PostgreSQL', icon: 'assets/icons/postgresql.svg'),
     // SkillModel(name: 'FastAPI', icon: 'assets/icons/fastapi.svg'),
@@ -57,24 +81,25 @@ final profile = ProfileModel(
           'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
       company: 'TraveL',
       technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
+      duration: '2021 – 2022',
+      
+    ),
+    ExperienceModel(
+      title: 'Flutter Developer',
+      description:
+          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
+      company: 'TraveL',
+      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
+      duration: '2021 - 2022',
+    ),
+    ExperienceModel(
+      title: 'Flutter Developer',
+      description:
+          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
+      company: 'TraveL',
+      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
       duration: 'Mar 2023 – Present',
-      isCurrent: true,
-    ),
-    ExperienceModel(
-      title: 'Flutter Developer',
-      description:
-          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
-      company: 'TraveL',
-      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
-      duration: '2021 - 2022',
-    ),
-    ExperienceModel(
-      title: 'Flutter Developer',
-      description:
-          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
-      company: 'TraveL',
-      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
-      duration: '2021 - 2022',
+      isCurrent: true
     ),
   ],
 
@@ -83,12 +108,12 @@ final profile = ProfileModel(
       title: 'Quran TV App',
       description:
           'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
-      image: 'assets/projects/quran_tv.jpeg',
+      image: AppImages.jpg.quranTV,
       images: [
-        'assets/projects/quran_tv.jpeg',
-        'assets/projects/quran_tv.jpeg',
-        'assets/projects/quran_tv.jpeg',
-        'assets/projects/quran_tv.jpeg',
+        AppImages.jpg.quranTV,
+        AppImages.jpg.quranTV,
+        AppImages.jpg.quranTV,
+        AppImages.jpg.quranTV,
       ],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
@@ -97,8 +122,8 @@ final profile = ProfileModel(
       title: 'Quran TV App',
       description:
           'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
-      image: 'assets/projects/quran_tv.jpeg',
-      images: ['assets/projects/quran_tv.jpeg'],
+      image: AppImages.jpg.quranTV,
+      images: [AppImages.jpg.quranTV],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
@@ -106,8 +131,8 @@ final profile = ProfileModel(
       title: 'Quran TV App',
       description:
           'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
-      image: 'assets/projects/quran_tv.jpeg',
-      images: ['assets/projects/quran_tv.jpeg'],
+      image: AppImages.jpg.quranTV,
+      images: [AppImages.jpg.quranTV],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
@@ -115,8 +140,8 @@ final profile = ProfileModel(
       title: 'Quran TV App',
       description:
           'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
-      image: 'assets/projects/quran_tv.jpeg',
-      images: ['assets/projects/quran_tv.jpeg'],
+      image: AppImages.jpg.quranTV,
+      images: [AppImages.jpg.quranTV],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
@@ -124,8 +149,8 @@ final profile = ProfileModel(
       title: 'Quran TV App',
       description:
           'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
-      image: 'assets/projects/quran_tv.jpeg',
-      images: ['assets/projects/quran_tv.jpeg'],
+      image: AppImages.jpg.quranTV,
+      images: [AppImages.jpg.quranTV],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),
@@ -133,8 +158,8 @@ final profile = ProfileModel(
       title: 'Quran TV App',
       description:
           'Stream high-quality Quran channels with beautiful UI, dark mode, and live support.',
-      image: 'assets/projects/quran_tv.jpeg',
-      images: ['assets/projects/quran_tv.jpeg'],
+      image: AppImages.jpg.quranTV,
+      images: [AppImages.jpg.quranTV],
       link: 'https://github.com/MahmoudAlaa22/QuranTV',
       tags: ['Flutter', 'Live Streaming', 'Clean UI'],
     ),

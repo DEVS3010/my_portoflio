@@ -1,12 +1,19 @@
 // main.dart with AppColors theme
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/app_colors.dart';
 import 'core/app_scroll_behavior.dart';
 import 'ui/pages/home_page.dart';
 
-void main() {
-  runApp(const PortfolioApp());
+void main() async{
+   if (!kIsWeb) {
+    await ScreenUtil.ensureScreenSize();
+  }
+  runApp(
+    DevicePreview(enabled: !kReleaseMode, builder: (context) => PortfolioApp()),
+  );
 }
 
 class PortfolioApp extends StatelessWidget {

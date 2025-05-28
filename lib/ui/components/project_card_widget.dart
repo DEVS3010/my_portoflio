@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
 import '../../../models/project_model.dart';
+import '../../core/responsive_helper.dart';
 import 'app_button_widget.dart';
 
 class ProjectCardWidget extends StatefulWidget {
@@ -20,9 +21,10 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
   @override
   Widget build(BuildContext context) {
     final project = widget.project;
+    final isMobile = Responsive.isMobile(context);
 
     return Container(
-      width: 450.w,
+      width: isMobile ? 250.w : 450.w,
       height: 700.h,
       decoration: BoxDecoration(
         color: AppColors.surface,
@@ -46,7 +48,7 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
               itemBuilder: (context, index) {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(10.r),
-                  child: Image.network(
+                  child: Image.asset(
                     project.images[index],
                     // fit: BoxFit.contain,
                     // width: double.infinity,

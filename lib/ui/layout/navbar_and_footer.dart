@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/app_colors.dart';
 import '../../../data/sections_data.dart';
+import '../../core/responsive_helper.dart';
 
 class TopNavbar extends StatelessWidget {
   final Function(String) scrollToSection;
@@ -17,7 +18,7 @@ class TopNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isMobile = constraints.maxWidth < 800;
+        final isMobile = Responsive.isMobile(context);
 
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
@@ -36,10 +37,7 @@ class TopNavbar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          'Mahmoud Alaa',
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
-        ),
+        _logoInTheCenter(),
         Builder(
           builder:
               (context) => IconButton(
@@ -73,34 +71,7 @@ class TopNavbar extends StatelessWidget {
             ...leftItems.map((name) => _navItem(name)),
 
             // Logo in the center
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: AppColors.primary,
-                    radius: 18.r,
-                    child: const Text(
-                      'M',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.w),
-                  Text(
-                    'MAHMOUD',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.white,
-                      fontSize: 16.sp,
-                    ),
-                  ),
-                  SizedBox(width: 32.w),
-                ],
-              ),
-            ),
+            _logoInTheCenter(),
 
             // Right Items
             ...rightItems.map((name) => _navItem(name)),
@@ -137,6 +108,34 @@ class TopNavbar extends StatelessWidget {
   }
 }
 
+Widget _logoInTheCenter() {
+  return Padding(
+    padding: EdgeInsets.symmetric(horizontal: 24.w),
+    child: Row(
+      children: [
+        CircleAvatar(
+          backgroundColor: AppColors.primary,
+          radius: 18.r,
+          child: const Text(
+            'M',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        ),
+        SizedBox(width: 8.w),
+        Text(
+          'MAHMOUD',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: AppColors.white,
+            fontSize: 16.sp,
+          ),
+        ),
+        SizedBox(width: 32.w),
+      ],
+    ),
+  );
+}
+
 class NavbarDrawer extends StatelessWidget {
   final Function(String) scrollToSection;
 
@@ -151,10 +150,7 @@ class NavbarDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: const BoxDecoration(color: Colors.black87),
-            child: Text(
-              'Mahmoud Alaa',
-              style: TextStyle(color: Colors.white, fontSize: 18.sp),
-            ),
+            child: _logoInTheCenter(),
           ),
           ...sectionKeys.keys.map(
             (name) => ListTile(

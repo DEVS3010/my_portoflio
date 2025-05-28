@@ -1,13 +1,13 @@
 import 'social_model.dart';
 
-class TestimonialModel {
+class RecommendationModel {
   final String name;
   final String role;
   final String image;
   final String comment;
   final List<SocialIModel> socialLinks;
 
-  TestimonialModel({
+  RecommendationModel({
     required this.name,
     required this.role,
     required this.image,

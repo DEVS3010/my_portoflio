@@ -3,17 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
-import '../../../data/testimonials_data.dart';
-import '../../../models/testimonial_model.dart';
+import '../../data/recommendations_data.dart';
 
-class TestimonialsSection extends StatefulWidget {
-  const TestimonialsSection({super.key});
+class RecommendationsSection extends StatefulWidget {
+  const RecommendationsSection({super.key});
 
   @override
-  State<TestimonialsSection> createState() => _TestimonialsSectionState();
+  State<RecommendationsSection> createState() => _RecommendationsSectionState();
 }
 
-class _TestimonialsSectionState extends State<TestimonialsSection> {
+class _RecommendationsSectionState extends State<RecommendationsSection> {
   final PageController _pageController = PageController(viewportFraction: 0.85);
   int currentIndex = 0;
 
@@ -26,7 +25,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Testimonials',
+            'Recommendations',
             style: TextStyle(
               fontSize: 32.sp,
               fontWeight: FontWeight.bold,
@@ -46,10 +45,10 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
             height: 350.h,
             child: PageView.builder(
               controller: _pageController,
-              itemCount: testimonials.length,
+              itemCount: recommendations.length,
               onPageChanged: (index) => setState(() => currentIndex = index),
               itemBuilder: (context, index) {
-                final testimonial = testimonials[index];
+                final testimonial = recommendations[index];
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   margin: EdgeInsets.symmetric(horizontal: 12.w),
@@ -69,7 +68,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
                     children: [
                       CircleAvatar(
                         radius: 36.r,
-                        backgroundImage: AssetImage(testimonial.image),
+                        backgroundImage: NetworkImage(testimonial.image),
                       ),
                       SizedBox(height: 20.h),
                       Text(
@@ -126,7 +125,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
           /// Dot Indicators
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(testimonials.length, (index) {
+            children: List.generate(recommendations.length, (index) {
               final isActive = index == currentIndex;
               return AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
