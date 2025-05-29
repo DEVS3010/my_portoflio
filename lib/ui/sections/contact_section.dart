@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_portfolio/core/app_text_styles.dart';
 import 'package:my_portfolio/data/portfolio_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
@@ -13,26 +15,29 @@ class ContactSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 64.h, horizontal: 24.w),
-      color: AppColors.background,
+      padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 24.w),
+      height: isMobile ? 900.h : null,
+      color: AppColors.surface,
       child: Flex(
         direction: isMobile ? Axis.vertical : Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /// Left: Info
-          Expanded(
+          SizedBox(
+            height: isMobile ? 350.h : null,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   'Contact Info',
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.white,
-                  ),
-                ),
+                  style:
+                      isMobile
+                          ? AppTextStyles.font21White.copyWith(
+                            fontWeight: FontWeight.bold,
+                          )
+                          : AppTextStyles.font32WhiteBold,
+                ).animate().fadeIn().slideY(begin: 0.1),
                 SizedBox(height: 20.h),
                 _contactItem(Icons.location_on, 'Riyadh, Saudi Arabia'),
                 _contactItem(Icons.email, 'mahmoud3laa2210@gmail.com'),
@@ -40,12 +45,9 @@ class ContactSection extends StatelessWidget {
                 SizedBox(height: 24.h),
                 Text(
                   'Follow Me',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.white,
-                  ),
+                  style: AppTextStyles.font18WhiteBold,
                 ),
+                
                 SizedBox(height: 12.h),
                 Wrap(
                   spacing: 12.w,
@@ -68,12 +70,13 @@ class ContactSection extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: isMobile ? 0 : 40.w, height: isMobile ? 40.h : 0),
+          SizedBox(width: isMobile ? 0 : 40.w, height: isMobile ? 10.h : 0),
 
           /// Right: Form
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   'Send Me a Message',
@@ -122,7 +125,10 @@ class ContactSection extends StatelessWidget {
         children: [
           Icon(icon, color: AppColors.primary, size: 20.sp),
           SizedBox(width: 12.w),
-          Text(text, style: TextStyle(color: AppColors.white, fontSize: 14.sp)),
+          Text(
+            text,
+            style: AppTextStyles.font14White.copyWith(color: AppColors.text),
+          ),
         ],
       ),
     );
@@ -135,7 +141,7 @@ class ContactSection extends StatelessWidget {
         onTap: () => launchUrl(Uri.parse(link)),
         child: CircleAvatar(
           radius: 18.r,
-          backgroundColor: AppColors.white.withOpacity(0.08),
+          backgroundColor: AppColors.white.withValues(alpha: 0.08),
           child: Icon(icon, size: 16.sp, color: AppColors.white),
         ),
       ),
@@ -154,7 +160,7 @@ class ContactSection extends StatelessWidget {
         fillColor: AppColors.surface,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide(color: AppColors.white.withValues(alpha: 0.2)),
         ),
       ),
     );

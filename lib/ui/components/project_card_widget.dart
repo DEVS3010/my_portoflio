@@ -25,7 +25,7 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
 
     return Container(
       width: isMobile ? 200.w : 450.w,
-      height:  isMobile ? 500.h : 700.h,
+      height: isMobile ? 550.h : 700.h,
       decoration: BoxDecoration(
         color: AppColors.background,
         borderRadius: BorderRadius.circular(15.r),
@@ -115,48 +115,48 @@ class _ProjectCardWidgetState extends State<ProjectCardWidget> {
           ),
 
           /// Buttons
-          isMobile?
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppButtonWidget(
-                  icon: Icons.code,
-                  title: 'Code',
-                  onPressed: () => launchUrl(Uri.parse(project.link)),
-                  color: AppColors.primary,
+          isMobile
+              ? Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AppButtonWidget(
+                      icon: Icons.code,
+                      title: 'Code',
+                      onPressed: () => launchUrl(Uri.parse(project.link)),
+                      color: AppColors.primary,
+                    ),
+                    SizedBox(height: 8.w),
+                    AppButtonWidget(
+                      icon: Icons.open_in_new,
+                      title: 'Live Demo',
+                      onPressed: () => launchUrl(Uri.parse(project.link)),
+                      color: AppColors.primary,
+                      hasBorder: true,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 8.w),
-                AppButtonWidget(
-                  icon: Icons.open_in_new,
-                  title: 'Live Demo',
-                  onPressed: () => launchUrl(Uri.parse(project.link)),
-                  color: AppColors.primary,
-                  hasBorder: true,
-                ),
-              ],
-            ),
-          ):
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppButtonWidget(
-                icon: Icons.code,
-                title: 'Code',
-                onPressed: () => launchUrl(Uri.parse(project.link)),
-                color: AppColors.primary,
+              )
+              : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppButtonWidget(
+                    icon: Icons.code,
+                    title: 'Code',
+                    onPressed: () => launchUrl(Uri.parse(project.link)),
+                    color: AppColors.primary,
+                  ),
+                  SizedBox(width: 16.w),
+                  AppButtonWidget(
+                    icon: Icons.open_in_new,
+                    title: 'Live Demo',
+                    onPressed: () => launchUrl(Uri.parse(project.link)),
+                    color: AppColors.primary,
+                    hasBorder: true,
+                  ),
+                ],
               ),
-              SizedBox(width: 16.w),
-              AppButtonWidget(
-                icon: Icons.open_in_new,
-                title: 'Live Demo',
-                onPressed: () => launchUrl(Uri.parse(project.link)),
-                color: AppColors.primary,
-                hasBorder: true,
-              ),
-            ],
-          ),
         ],
       ),
     );

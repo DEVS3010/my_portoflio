@@ -90,11 +90,11 @@ class AppTextStyles {
     fontWeight: FontWeight.normal,
   );
   static TextStyle font14White = font14.copyWith(color: AppColors.white);
-  static TextStyle font14PrimaryBold = TextStyle(
+  static TextStyle font14PrimaryBold = font14.copyWith(
     color: AppColors.primary,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle font14WhiteBold = TextStyle(
+  static TextStyle font14WhiteBold = font14.copyWith(
     color: AppColors.white,
     fontWeight: FontWeight.bold,
   );
@@ -105,4 +105,5 @@ class AppTextStyles {
     fontWeight: FontWeight.normal,
   );
   static TextStyle font12Text = font12.copyWith(color: AppColors.text);
+  static TextStyle font12White = font12.copyWith(color: AppColors.white);
 }

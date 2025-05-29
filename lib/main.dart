@@ -7,12 +7,13 @@ import 'core/app_colors.dart';
 import 'core/app_scroll_behavior.dart';
 import 'ui/pages/home_page.dart';
 
-void main() async{
-   if (!kIsWeb) {
+void main() async {
+  if (!kIsWeb) {
     await ScreenUtil.ensureScreenSize();
   }
   runApp(
-    DevicePreview(enabled: !kReleaseMode, builder: (context) => PortfolioApp()),
+    PortfolioApp(),
+    // DevicePreview(enabled: !kReleaseMode, builder: (context) => PortfolioApp()),
   );
 }
 

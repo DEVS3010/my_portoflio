@@ -48,7 +48,7 @@ final recommendations = [
   ),
   RecommendationModel(
     name: 'Ahmad Abd El-Latief Karam',
-    role: 'Site Engineer | Site Engineer Specializing in Construction',
+    role: 'Site Engineer Specializing in Construction',
     image:
         'https://media.licdn.com/dms/image/v2/D4D03AQHdTHpXIz10Ww/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1682212899259?e=1753920000&v=beta&t=en0vppbVrTXUvvOQC8-ees6uxwAioi494qP4oHoQMJk',
     comment:
@@ -62,7 +62,7 @@ final recommendations = [
   ),
   RecommendationModel(
     name: 'Menna Tarek ',
-    role: 'lecturer at NTI | lecturer at west Alabama university',
+    role: 'lecturer at NTI',
     image:
         'https://media.licdn.com/dms/image/v2/D4D03AQFdWicy-wnxaA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721218044339?e=1753920000&v=beta&t=7PbCLG3vsGwmdLH5dMWqYYq2t6IF9YIejdo7xGM5zNQ',
     comment:

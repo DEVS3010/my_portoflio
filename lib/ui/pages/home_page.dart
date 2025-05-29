@@ -14,16 +14,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
   String activeSection = 'Home';
+  bool isAutoScrolling = false;
 
-  /// Scroll to section by name
   void scrollToSection(String name) {
     final key = sectionKeys[name];
     if (key?.currentContext != null) {
+      setState(() => isAutoScrolling = true);
       Scrollable.ensureVisible(
         key!.currentContext!,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-      );
+      ).then((_) {
+        setState(() {
+          activeSection = name;
+          isAutoScrolling = false;
+        });
+      });
     }
   }
 
@@ -34,13 +40,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _updateActiveSection() {
+    if (isAutoScrolling) return;
+
     for (final entry in sectionKeys.entries) {
       final keyContext = entry.value.currentContext;
       if (keyContext != null) {
         final box = keyContext.findRenderObject() as RenderBox;
         final position = box.localToGlobal(Offset.zero).dy;
 
-        // إذا كان أعلى القسم مرئي تقريبًا
         if (position >= 0 &&
             position < MediaQuery.of(context).size.height / 2) {
           if (activeSection != entry.key) {
@@ -62,6 +69,8 @@ class _HomePageState extends State<HomePage> {
           scrollToSection(name);
           setState(() => activeSection = name);
         },
+          activeSection: activeSection,
+
       ),
 
       body: SafeArea(
@@ -76,41 +85,10 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[0].section,
-                    ),
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[1].section,
-                    ),
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[2].section,
-                    ),
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[3].section,
-                    ),
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[4].section,
-                    ),
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[5].section,
-                    ),
-                    KeyedSubtree(
-                      key: GlobalKey(),
-                      child: sections[6].section,
-                    ),
-                    // ...sections.map((section) {
-                    //   final key = sectionKeys[section.name];
-                    //   return KeyedSubtree(
-                    //     key: key,
-                    //     child: section.section,
-                    //   );
-                    // }),
+                    ...sections.map((section) {
+                      final key = sectionKeys[section.name];
+                      return KeyedSubtree(key: key, child: section.section);
+                    }),
                     Footer(
                       onBackToTop: () {
                         scrollToSection('Home');

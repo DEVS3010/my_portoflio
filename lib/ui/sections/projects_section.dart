@@ -23,7 +23,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
     return Container(
       color: AppColors.surface,
       
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 64.h),
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -46,7 +46,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           ),
           SizedBox(height: 20.h),
           SizedBox(
-            height: isMobile? 500.h : 700.h,
+            height: isMobile? 550.h : 700.h,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder:

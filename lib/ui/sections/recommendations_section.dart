@@ -30,7 +30,8 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
         children: [
           Text(
             'Recommendations',
-            style: isMobile
+            style:
+                isMobile
                     ? AppTextStyles.font21White.copyWith(
                       fontWeight: FontWeight.bold,
                     )
@@ -46,7 +47,7 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
 
           /// Scrollable PageView
           SizedBox(
-            height:  isMobile ? 250.h : 350.h,
+            height:  400.h,
             child: PageView.builder(
               controller: _pageController,
               itemCount: recommendations.length,
@@ -56,13 +57,16 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   margin: EdgeInsets.symmetric(horizontal: 12.w),
-                  padding: EdgeInsets.all(24.w),
+                  padding: EdgeInsets.symmetric(
+                    vertical: isMobile ? 20.h : 30.h,
+                    horizontal: isMobile ? 16.w : 24.w,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.surface,
                     borderRadius: BorderRadius.circular(16.r),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 10,
                         offset: const Offset(0, 6),
                       ),
@@ -77,23 +81,26 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                       SizedBox(height: isMobile ? 12.h : 20.h),
                       Text(
                         testimonial.name,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.sp,
-                          color: AppColors.white,
-                        ),
+                        style: AppTextStyles.font14PrimaryBold,
                       ),
                       Text(
                         testimonial.role,
-                        style: isMobile ? AppTextStyles.font12Text : AppTextStyles.font12Text,
+                        style:AppTextStyles.font12White,
+                                textAlign: TextAlign.center,
                       ),
                       SizedBox(height: isMobile ? 6.h : 12.h),
                       Text(
                         '"${testimonial.comment}"',
                         textAlign: TextAlign.center,
-                        style: isMobile ? AppTextStyles.font12Text : AppTextStyles.font14.copyWith(
-                          color: AppColors.text,
-                        ),
+                        style:
+                            isMobile
+                                ? AppTextStyles.font12Text
+                                : AppTextStyles.font14.copyWith(
+                                  color: AppColors.text,
+                                ),
+                                maxLines: 7,
+                                overflow: TextOverflow.ellipsis,
+                                
                       ),
                       Spacer(),
                       Wrap(

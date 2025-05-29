@@ -87,7 +87,9 @@ class TopNavbar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.w),
       child: GestureDetector(
-        onTap: () => scrollToSection(name),
+        onTap: () {
+          scrollToSection(name);
+        },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
           decoration: BoxDecoration(
@@ -137,8 +139,13 @@ Widget _logoInTheCenter() {
 
 class NavbarDrawer extends StatelessWidget {
   final Function(String) scrollToSection;
+  final String activeSection;
 
-  const NavbarDrawer({super.key, required this.scrollToSection});
+  const NavbarDrawer({
+    super.key,
+    required this.scrollToSection,
+    required this.activeSection,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -148,23 +155,33 @@ class NavbarDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration:  BoxDecoration(color: AppColors.background),
+            decoration: BoxDecoration(color: AppColors.background),
             child: _logoInTheCenter(),
           ),
           ...sectionKeys.keys.map(
-            (name) => ListTile(
-              title: Text(name, style: const TextStyle(color: Colors.white)),
-              onTap: () {
-                Navigator.pop(context);
-                scrollToSection(name);
-              },
-            ),
+            (name) {
+              final isActive = name.toLowerCase() == activeSection.toLowerCase();
+              return ListTile(
+                title: Text(
+                  name,
+                  style: TextStyle(
+                    color: isActive ? AppColors.primary : Colors.white,
+                    fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  scrollToSection(name);
+                },
+              );
+            },
           ),
         ],
       ),
     );
   }
 }
+
 
 class Footer extends StatelessWidget {
   final VoidCallback onBackToTop;
