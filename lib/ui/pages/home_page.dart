@@ -89,8 +89,9 @@ class _HomePageState extends State<HomePage> {
                       final key = sectionKeys[section.name];
                       return KeyedSubtree(key: key, child: section.section);
                     }),
+                    // KeyedSubtree(key:GlobalKey(), child: sections[0].section), // Home Section
                     Footer(
-                      onBackToTop: () {
+                      onBackToTop: () { 
                         scrollToSection('Home');
                         setState(() => activeSection = 'Home');
                       },
