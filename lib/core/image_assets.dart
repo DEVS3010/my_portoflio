@@ -7,6 +7,7 @@ class AppImages {
   static _AppImagesPNG png = _AppImagesPNG();
   static _AppImagesSVG svg = _AppImagesSVG();
   static _AppImagesJPG jpg = _AppImagesJPG();
+  static _AppImagesProject project = _AppImagesProject();
 
   static Widget buildImageFromAsset(
     String path, {
@@ -67,4 +68,77 @@ class _AppImagesJPG {
   static String _filePathJPG(v) => "$_filePath/jpg/$v.jpg";
   //? add file path like 👇
   String quranTV = _filePathJPG('quran_tv');
+}
+
+class _AppImagesProject {
+  ///jpg file path that has image has type [JPG]
+  // static const _filePathJPG = "$_filePath/jpg";
+  static String _filePathProject(v) => "$_filePath/projects/$v";
+  static String _filePathJPG(v) => "$v.jpg";
+  //? add file path like 👇
+  ZamzamProjectImages zamzam = ZamzamProjectImages();
+  AlBayanProjectImages alBayan = AlBayanProjectImages();
+  AlWahabProjectImages alWahab = AlWahabProjectImages();
+  EcommerceProjectImages ecommerce = EcommerceProjectImages();
+  ElOgraProjectImages elOgra = ElOgraProjectImages();
+}
+class ZamzamProjectImages{
+  static String _filePathProject(v) => "$_filePath/projects/$v";
+  static String _filePathPNG(v) => "$v.png";
+  static String pZamzam = _filePathProject('zamzam');
+  String zamzam = _filePathPNG('$pZamzam/zamzam');
+}
+class AlBayanProjectImages {
+  static String _filePathProject(v) => "$_filePath/projects/$v";
+  static String _filePathJPG(v) => "$v.jpg";
+  static String pAlBayan = _filePathProject('al_bayan');
+  String alBayan = _filePathJPG('$pAlBayan/al_bayan');
+}
+
+class AlWahabProjectImages {
+  static String _filePathProject(v) => "$_filePath/projects/$v";
+  static String _filePathJPG(v) => "$v.jpg";
+  static String pAlWahab = _filePathProject('al_wahab');
+  String alWahab = _filePathJPG('$pAlWahab/al_wahab');
+}
+
+class EcommerceProjectImages {
+  static String _filePathProject(v) => "$_filePath/projects/$v";
+  static String _filePathJPG(v) => "$v.jpg";
+  static String pECommerce = _filePathProject('e-commerce');
+  String eCommerce = '$pECommerce/e-commerce.gif';
+  String cart = _filePathJPG('$pECommerce/cart');
+  String categories = _filePathJPG('$pECommerce/categories');
+  String categories1 = _filePathJPG('$pECommerce/categories1');
+  String checkOut = _filePathJPG('$pECommerce/check-out');
+  String checkOut1 = _filePathJPG('$pECommerce/check-out1');
+  String filters = _filePathJPG('$pECommerce/filters');
+  String home = _filePathJPG('$pECommerce/home');
+  String login = _filePathJPG('$pECommerce/login');
+  String myOrdersProcessing = _filePathJPG('$pECommerce/my_orders-processing');
+  String myOrdersCancelled = _filePathJPG('$pECommerce/my-orders-cancelled');
+  String orderDetailsBy = _filePathJPG('$pECommerce/order-details-by');
+  String orderSuccess = _filePathJPG('$pECommerce/order-success');
+  String product = _filePathJPG('$pECommerce/product');
+  String product1 = _filePathJPG('$pECommerce/product1');
+  String profile = _filePathJPG('$pECommerce/profile');
+  String signUp = _filePathJPG('$pECommerce/sign-up');
+  String sortBby = _filePathJPG('$pECommerce/sort-by');
+  String splash = _filePathJPG('$pECommerce/splash');
+}
+
+class ElOgraProjectImages {
+  static String _filePathProject(v) => "$_filePath/projects/$v";
+  static String _filePathJPG(v) => "$v.jpg";
+  static String pElOgra = _filePathProject('el_ogra');
+  String elOgra = '$pElOgra/EL-Ogra.gif';
+  String addTheAmountPaid = _filePathJPG('$pElOgra/add-the-amount-paid');
+  String anErrorOccurred = _filePathJPG('$pElOgra/an-error-occurred');
+  String bill = _filePathJPG('$pElOgra/bill');
+  String dashboard = _filePathJPG('$pElOgra/dashboard');
+  String home = _filePathJPG('$pElOgra/home');
+  String splash = _filePathJPG('$pElOgra/splash');
+  String thePaymentWasMade = _filePathJPG('$pElOgra/the-payment-was-made');
+
+  
 }

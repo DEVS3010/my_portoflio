@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^2.0.9     # for icons if needed
   flutter_screenutil: ^5.9.3
   device_preview: ^1.2.0
+  cached_network_image: ^3.4.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +68,20 @@ flutter:
     - assets/images/svg/
     - assets/images/png/
     - assets/images/jpg/
+    - assets/images/projects/al_bayan/
+    - assets/images/projects/al_wahab/
+    - assets/images/projects/celeste/
+    - assets/images/projects/devs-notes/
+    - assets/images/projects/e-commerce/
+    - assets/images/projects/el-ogra/
+    - assets/images/projects/flutter_animation_cv/
+    - assets/images/projects/jamallek/
+    - assets/images/projects/password-manager/
+    - assets/images/projects/prayer-times/
+    - assets/images/projects/quran-tv/
+    - assets/images/projects/qurani-pro/
+    - assets/images/projects/zamzam/
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
