@@ -68,37 +68,51 @@ final profile = ProfileModel(
   ],
 
   experiences: [
-    // ExperienceModel(
-    //   title: 'Mobile Team Lead',
-    //   description: 'Leading the mobile development team at Solution Hunters, overseeing architecture, mentoring, and code quality.',
-    //   image: 'assets/images/solution_hunters.png',
-    //   type: 'Full-time',
-    //   duration: '2022 - Present',
-    // ),
     ExperienceModel(
-      title: 'Flutter Developer',
+      title: 'Lead Flutter Developer',
+      company: 'Travel Car Rental',
       description:
-          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
-      company: 'TraveL',
-      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
-      duration: '2021 – 2022',
+          'Led a team to build adaptive, secure, cross-platform apps for Windows, web, and mobile. Spearheaded performance optimization, applied TDD and clean architecture, and represented the company at global events including LEAP2024 and Intersec.',
+      technologies: [
+        'Flutter',
+        'Dart',
+        'Windows',
+        'Web',
+        'Firebase',
+        'API Integration',
+        'Clean Architecture',
+        'TDD',
+      ],
+      duration: 'Feb 2023 – Present',
+      location: 'Saudi Arabia · On-site',
+      isCurrent: true
     ),
+
     ExperienceModel(
       title: 'Flutter Developer',
+      company: 'Bird Cloud',
       description:
-          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
-      company: 'TraveL',
-      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
-      duration: '2021 - 2022',
+          'Led the development of two Quran-focused apps with features like Qibla via camera, nearest mosques, and Tafsir. Improved performance by 100x. Took lead for 3 months ensuring on-time delivery and enhanced user satisfaction.',
+      technologies: [
+        'Flutter',
+        'Dart',
+        'Firebase',
+        'SQFLite',
+        'Google Maps',
+        'Git',
+      ],
+      duration: 'Sep 2021 – Jun 2022',
+      location: 'Remote',
     ),
+
     ExperienceModel(
-      title: 'Flutter Developer',
+      title: 'Core Team Member',
+      company: 'Google Developer Student Club (GDSC - DTU)',
       description:
-          'Developed multi-platform car rental applications at TraveL using Flutter for iOS, Android, and Web.',
-      company: 'TraveL',
-      technologies: ['Flutter', 'Firebase', 'BLoC', 'Responsive UI'],
-      duration: 'Mar 2023 – Present',
-      isCurrent: true,
+          'Contributed to open-source initiatives and helped organize workshops and hackathons focused on Flutter and mobile development.',
+      technologies: ['Flutter', 'Team Collaboration', 'Open Source'],
+      duration: 'Nov 2020 – Mar 2021',
+      location: 'Al Minya, Egypt',
     ),
   ],
 

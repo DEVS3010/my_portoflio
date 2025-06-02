@@ -49,6 +49,7 @@ class CertificationsSection extends StatelessWidget {
     final isMobile = Responsive.isMobile(context);
     return Container(
       width: 300.w,
+      height: 250.h,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: AppColors.surface,
@@ -83,11 +84,12 @@ class CertificationsSection extends StatelessWidget {
                     : AppTextStyles.font12Text,
           ),
           if (cert.credentialUrl != null) ...[
-            SizedBox(height: 12.h),
+            Spacer(),
             AppButtonWidget(
               title: 'View Certificate',
               onPressed: () => launchUrl(Uri.parse(cert.credentialUrl!)),
               hasBorder: true,
+              icon: Icons.open_in_new,
               color: AppColors.primary,
             ),
           ],

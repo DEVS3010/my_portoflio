@@ -5,6 +5,7 @@ class ExperienceModel {
   final String description;
   final List<String> technologies;
   final bool isCurrent;
+  final String location;
 
   ExperienceModel({
     required this.title,
@@ -13,5 +14,6 @@ class ExperienceModel {
     required this.description,
     required this.technologies,
     this.isCurrent = false,
+    required this.location,
   });
 }
