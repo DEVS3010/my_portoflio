@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -133,53 +135,50 @@ class _ProjectCardWidgetDesktopState extends State<ProjectCardWidgetDesktop> {
           Spacer(),
 
           /// Buttons
-          isMobile
-              ? Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (project.github != null && project.github!.isNotEmpty)
-                      AppButtonWidget(
-                        icon: Icons.code,
-                        title: 'Code',
-                        onPressed: () => launchUrl(Uri.parse(project.github!)),
-                        color: AppColors.primary,
-                      ),
-                    SizedBox(height: 8.w),
-                    if (project.link.isNotEmpty)
-                      AppButtonWidget(
-                        icon: Icons.open_in_new,
-                        title: 'Live Demo',
-                        onPressed: () => launchUrl(Uri.parse(project.link)),
-                        color: AppColors.primary,
-                        hasBorder: true,
-                      ),
-                  ],
-                ),
-              )
-              : Row(
+          Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppButtonWidget(
-                    icon: Icons.code,
-                    title: 'Code',
-                    onPressed: () => launchUrl(Uri.parse(project.link)),
-                    color: AppColors.primary,
-                  ),
+                  if (project.github != null && project.github!.isNotEmpty)
+                    AppButtonWidget(
+                      icon: Icons.code,
+                      title: 'Code',
+                      onPressed: () async {
+                        log('Launching URL: ${project.github}');
+                        await _launchUrl(project.link);
+                      },
+                      color: AppColors.primary,
+                    ),
                   SizedBox(width: 16.w),
-                  AppButtonWidget(
-                    icon: Icons.open_in_new,
-                    title: 'Live Demo',
-                    onPressed: () => launchUrl(Uri.parse(project.link)),
-                    color: AppColors.primary,
-                    hasBorder: true,
-                  ),
+                  if (project.link.isNotEmpty)
+                    AppButtonWidget(
+                      icon: Icons.open_in_new,
+                      title: 'Live Demo',
+                      onPressed: () async {
+                        log('Launching URL: ${project.link}');
+                        await _launchUrl(project.link);
+                      },
+                      color: AppColors.primary,
+                      hasBorder: true,
+                    ),
                 ],
               ),
           SizedBox(height: 20.h),
         ],
       ),
     );
+  }
+
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url);
+      }
+       else {
+        log('Could not launch $urlString');
+      }
+    } catch (e) {
+      log('Error launching URL: $urlString, $e');
+    }
   }
 }

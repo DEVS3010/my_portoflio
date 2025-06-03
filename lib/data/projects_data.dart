@@ -56,7 +56,7 @@ final List<ProjectModel> projects = [
       AppImages.project.jamallek.p15,
       AppImages.project.jamallek.p16,
     ],
-    link: '', // if available, replace with GitHub or Play Store link
+    link: 'https://github.com/DEVS3010/Jamallek-Readme-File',
     tags: [
       'Flutter',
       'Dart',
@@ -68,8 +68,8 @@ final List<ProjectModel> projects = [
       'SharedPreferences',
     ],
     isFeatured: true,
-    github: null,
-    liveDemo: null,
+    github: 'https://github.com/DEVS3010/Jamallek-Readme-File',
+    liveDemo: 'https://github.com/DEVS3010/Jamallek-Readme-File',
   ),
   ProjectModel(
     title: 'Easy Learning (AR + ML)',
@@ -99,8 +99,7 @@ final List<ProjectModel> projects = [
       AppImages.project.arAnimalLearning.p18,
       AppImages.project.arAnimalLearning.p19,
     ],
-    link:
-        'https://play.google.com/store/apps/details?id=com.yourapp.easylearning', // Replace with real link
+    link: '',
     tags: [
       'Flutter',
       'Augmented Reality',
@@ -110,8 +109,9 @@ final List<ProjectModel> projects = [
       '3D Animals',
     ],
     isFeatured: true,
-    github: null, // Add GitHub repo if available
-    liveDemo: null, // Add live demo link if available
+    github:
+        'https://github.com/MahmoudAlaa22/Easy-Learning-AR-Educational-App-Readme-File',
+    liveDemo: null,
   ),
 
   ProjectModel(
@@ -137,7 +137,8 @@ final List<ProjectModel> projects = [
       AppImages.project.alWahab.p9,
       AppImages.project.alWahab.p11,
     ],
-    link: 'https://lnkd.in/dE_hsBda',
+    link:
+        'https://play.google.com/store/apps/details?id=com.devs.al_wahab_quran',
     tags: [
       'Flutter',
       'Prayer Times',
@@ -149,7 +150,7 @@ final List<ProjectModel> projects = [
       'Islamic App',
     ],
     isFeatured: true,
-    github: null,
+    github: 'https://github.com/MahmoudAlaa22/Al-Wahab-Quran-Readme-File',
     liveDemo: null,
   ),
   ProjectModel(
@@ -185,6 +186,26 @@ final List<ProjectModel> projects = [
     liveDemo:
         'https://github.com/MahmoudAlaa22/make_password_encryption/assets/60518534/e88188ab-c577-4606-907c-91f6241d5d76',
   ),
+
+  ProjectModel(
+    title: 'ZamZam',
+    description:
+        'مساعد المعتمر الذكي (زمزم)\nتطوير نظام ذكاء اصطناعي تفاعلي متعدد اللغات يوفر استجابات سريعة و مخصصة للمستخدمين',
+    image: AppImages.project.zamzam.zamzam,
+    images: [AppImages.project.zamzam.zamzam],
+    link: '',
+    tags: [
+      'Flutter',
+      'Artificial Intelligence (AI)',
+      'Dart',
+      'REST APIs',
+      'Localization',
+    ],
+    isFeatured: false,
+    github: 'https://github.com/MahmoudAlaa22/zamzam-readme-file',
+    liveDemo: null,
+  ),
+
   ProjectModel(
     title: 'Quran TV',
     description:
@@ -206,7 +227,7 @@ final List<ProjectModel> projects = [
     github: null,
     liveDemo: null,
   ),
-
+  
   ProjectModel(
     title: 'Prayer Times App',
     description:
@@ -359,25 +380,6 @@ final List<ProjectModel> projects = [
     github: 'https://github.com/MahmoudAlaa22/WeatherApp-Readme-file',
     liveDemo:
         'https://www.linkedin.com/posts/mahmoudalaa2210_stateabrmanagement-api-requests-activity-6978941210748989440-Kffd',
-  ),
-
-  ProjectModel(
-    title: 'ZamZam',
-    description:
-        'مساعد المعتمر الذكي (زمزم)\nتطوير نظام ذكاء اصطناعي تفاعلي متعدد اللغات يوفر استجابات سريعة و مخصصة للمستخدمين',
-    image: AppImages.project.zamzam.zamzam,
-    images: [AppImages.project.zamzam.zamzam],
-    link: '',
-    tags: [
-      'Flutter',
-      'Artificial Intelligence (AI)',
-      'Dart',
-      'REST APIs',
-      'Localization',
-    ],
-    isFeatured: false,
-    github: null,
-    liveDemo: null,
   ),
 
   ProjectModel(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_portfolio/core/app_text_styles.dart';
@@ -138,7 +140,9 @@ class _ProjectCardWidgetMobileState extends State<ProjectCardWidgetMobile> {
                   AppButtonWidget(
                     icon: Icons.code,
                     title: 'Code',
-                    onPressed: () => launchUrl(Uri.parse(project.link)),
+                    onPressed: () async {
+                      await _launchUrl(project.github!);
+                    },
                     color: AppColors.primary,
                     style: AppTextStyles.font14White,
                   ),
@@ -147,7 +151,7 @@ class _ProjectCardWidgetMobileState extends State<ProjectCardWidgetMobile> {
                   AppButtonWidget(
                     icon: Icons.open_in_new,
                     title: 'Live Demo',
-                    onPressed: () => launchUrl(Uri.parse(project.link)),
+                    onPressed: () async => await _launchUrl(project.link),
                     color: AppColors.primary,
                     hasBorder: true,
                     style: AppTextStyles.font14White,
@@ -159,5 +163,18 @@ class _ProjectCardWidgetMobileState extends State<ProjectCardWidgetMobile> {
         ],
       ),
     );
+  }
+
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url);
+      } else {
+        log('Could not launch $urlString');
+      }
+    } catch (e) {
+      log('Error launching URL: $urlString, $e');
+    }
   }
 }

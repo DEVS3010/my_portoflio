@@ -20,7 +20,7 @@ class AppButtonWidget extends StatelessWidget {
   final String title;
   final Color? color;
   final bool hasBorder;
-  final Function onPressed;
+  final VoidCallback onPressed;
   final TextStyle? style;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class AppButtonWidget extends StatelessWidget {
           side: !hasBorder ? BorderSide.none : BorderSide(color: color!),
         ),
       ),
-      onPressed: () => onPressed,
+      onPressed: onPressed,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
