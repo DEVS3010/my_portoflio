@@ -12,7 +12,8 @@ class ProjectCardWidgetDesktop extends StatefulWidget {
   const ProjectCardWidgetDesktop({super.key, required this.project});
 
   @override
-  State<ProjectCardWidgetDesktop> createState() => _ProjectCardWidgetDesktopState();
+  State<ProjectCardWidgetDesktop> createState() =>
+      _ProjectCardWidgetDesktopState();
 }
 
 class _ProjectCardWidgetDesktopState extends State<ProjectCardWidgetDesktop> {
@@ -138,20 +139,22 @@ class _ProjectCardWidgetDesktopState extends State<ProjectCardWidgetDesktop> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppButtonWidget(
-                      icon: Icons.code,
-                      title: 'Code',
-                      onPressed: () => launchUrl(Uri.parse(project.link)),
-                      color: AppColors.primary,
-                    ),
+                    if (project.github != null && project.github!.isNotEmpty)
+                      AppButtonWidget(
+                        icon: Icons.code,
+                        title: 'Code',
+                        onPressed: () => launchUrl(Uri.parse(project.github!)),
+                        color: AppColors.primary,
+                      ),
                     SizedBox(height: 8.w),
-                    AppButtonWidget(
-                      icon: Icons.open_in_new,
-                      title: 'Live Demo',
-                      onPressed: () => launchUrl(Uri.parse(project.link)),
-                      color: AppColors.primary,
-                      hasBorder: true,
-                    ),
+                    if (project.link.isNotEmpty)
+                      AppButtonWidget(
+                        icon: Icons.open_in_new,
+                        title: 'Live Demo',
+                        onPressed: () => launchUrl(Uri.parse(project.link)),
+                        color: AppColors.primary,
+                        hasBorder: true,
+                      ),
                   ],
                 ),
               )
@@ -174,7 +177,7 @@ class _ProjectCardWidgetDesktopState extends State<ProjectCardWidgetDesktop> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.h),
+          SizedBox(height: 20.h),
         ],
       ),
     );

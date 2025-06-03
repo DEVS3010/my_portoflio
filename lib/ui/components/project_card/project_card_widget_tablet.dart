@@ -96,9 +96,7 @@ class _ProjectCardWidgetTabletState extends State<ProjectCardWidgetTablet> {
                 SizedBox(height: 4.h),
                 Text(
                   project.description,
-                  style: AppTextStyles.font16.copyWith(
-                    color: AppColors.text,
-                  ),
+                  style: AppTextStyles.font16.copyWith(color: AppColors.text),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -137,20 +135,22 @@ class _ProjectCardWidgetTabletState extends State<ProjectCardWidgetTablet> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppButtonWidget(
-                icon: Icons.code,
-                title: 'Code',
-                onPressed: () => launchUrl(Uri.parse(project.link)),
-                color: AppColors.primary,
-              ),
+              if (project.github != null && project.github!.isNotEmpty)
+                AppButtonWidget(
+                  icon: Icons.code,
+                  title: 'Code',
+                  onPressed: () => launchUrl(Uri.parse(project.link)),
+                  color: AppColors.primary,
+                ),
               SizedBox(width: 16.w),
-              AppButtonWidget(
-                icon: Icons.open_in_new,
-                title: 'Live Demo',
-                onPressed: () => launchUrl(Uri.parse(project.link)),
-                color: AppColors.primary,
-                hasBorder: true,
-              ),
+              if (project.link.isNotEmpty)
+                AppButtonWidget(
+                  icon: Icons.open_in_new,
+                  title: 'Live Demo',
+                  onPressed: () => launchUrl(Uri.parse(project.link)),
+                  color: AppColors.primary,
+                  hasBorder: true,
+                ),
             ],
           ),
           SizedBox(height: 20.h),

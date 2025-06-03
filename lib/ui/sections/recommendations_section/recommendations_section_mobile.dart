@@ -12,16 +12,17 @@ class RecommendationsSectionMobile extends StatefulWidget {
   const RecommendationsSectionMobile({super.key});
 
   @override
-  State<RecommendationsSectionMobile> createState() => _RecommendationsSectionMobileState();
+  State<RecommendationsSectionMobile> createState() =>
+      _RecommendationsSectionMobileState();
 }
 
-class _RecommendationsSectionMobileState extends State<RecommendationsSectionMobile> {
+class _RecommendationsSectionMobileState
+    extends State<RecommendationsSectionMobile> {
   final PageController _pageController = PageController(viewportFraction: 0.85);
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = Responsive.isMobile(context);
     return Container(
       color: AppColors.background,
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 64.h),
@@ -30,24 +31,19 @@ class _RecommendationsSectionMobileState extends State<RecommendationsSectionMob
         children: [
           Text(
             'Recommendations',
-            style:
-                isMobile
-                    ? AppTextStyles.font21White.copyWith(
-                      fontWeight: FontWeight.bold,
-                    )
-                    : AppTextStyles.font32WhiteBold,
+            style: AppTextStyles.font32WhiteBold,
           ).animate().fadeIn().slideY(begin: 0.1),
           SizedBox(height: 12.h),
           Text(
             'Here’s what people say about working with me.',
-            style: TextStyle(fontSize: 14.sp, color: AppColors.text),
+            style: TextStyle(fontSize: 14, color: AppColors.text),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: isMobile ? 20.h : 40.h),
+          SizedBox(height: 40.h),
 
           /// Scrollable PageView
           SizedBox(
-            height:  400.h,
+            height: 0.6.sh,
             child: PageView.builder(
               controller: _pageController,
               itemCount: recommendations.length,
@@ -58,8 +54,8 @@ class _RecommendationsSectionMobileState extends State<RecommendationsSectionMob
                   duration: const Duration(milliseconds: 300),
                   margin: EdgeInsets.symmetric(horizontal: 12.w),
                   padding: EdgeInsets.symmetric(
-                    vertical: isMobile ? 20.h : 30.h,
-                    horizontal: isMobile ? 16.w : 24.w,
+                    vertical: 30.h,
+                    horizontal: 24.w,
                   ),
                   decoration: BoxDecoration(
                     color: AppColors.surface,
@@ -75,32 +71,26 @@ class _RecommendationsSectionMobileState extends State<RecommendationsSectionMob
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: isMobile ? 25.r : 36.r,
+                        radius: 35,
                         backgroundImage: NetworkImage(testimonial.image),
                       ),
-                      SizedBox(height: isMobile ? 12.h : 20.h),
+                      SizedBox(height: 10.h),
                       Text(
                         testimonial.name,
-                        style: AppTextStyles.font14PrimaryBold,
+                        style: AppTextStyles.font16PrimaryBold,
                       ),
                       Text(
                         testimonial.role,
-                        style:AppTextStyles.font12White,
-                                textAlign: TextAlign.center,
+                        style: AppTextStyles.font14White,
+                        textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: isMobile ? 6.h : 12.h),
+                      SizedBox(height: 12.h),
                       Text(
                         '"${testimonial.comment}"',
-                        textAlign: TextAlign.center,
-                        style:
-                            isMobile
-                                ? AppTextStyles.font12Text
-                                : AppTextStyles.font14.copyWith(
-                                  color: AppColors.text,
-                                ),
-                                maxLines: 7,
-                                overflow: TextOverflow.ellipsis,
-                                
+                        textAlign: TextAlign.justify,
+                        style: AppTextStyles.font12Text,
+                        // maxLines: 10,
+                        // overflow: TextOverflow.ellipsis,
                       ),
                       Spacer(),
                       Wrap(
@@ -111,7 +101,7 @@ class _RecommendationsSectionMobileState extends State<RecommendationsSectionMob
                                 onTap: () => launchUrl(Uri.parse(social.link)),
                                 child: SvgPicture.asset(
                                   social.icon,
-                                  width: 28.w,
+                                  width: 30,
                                   colorFilter: ColorFilter.mode(
                                     AppColors.white,
                                     BlendMode.srcIn,
@@ -137,7 +127,7 @@ class _RecommendationsSectionMobileState extends State<RecommendationsSectionMob
               return AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 margin: EdgeInsets.symmetric(horizontal: 6.w),
-                width: isActive ? 16.w : 8.w,
+                width: isActive ? 16 : 8,
                 height: 8.h,
                 decoration: BoxDecoration(
                   color:

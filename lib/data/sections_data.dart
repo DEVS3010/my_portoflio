@@ -2,6 +2,9 @@ import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/core/responsive_helper.dart';
 import 'package:my_portfolio/models/section_item_model.dart';
 import 'package:my_portfolio/ui/sections/certifications_section/certifications_section_desktop.dart';
+import 'package:my_portfolio/ui/sections/contact_section/contact_section_desktop.dart';
+import 'package:my_portfolio/ui/sections/contact_section/contact_section_mobile.dart';
+import 'package:my_portfolio/ui/sections/contact_section/contact_section_tablet.dart';
 import 'package:my_portfolio/ui/sections/projects_section/projects_section_desktop.dart';
 import 'package:my_portfolio/ui/sections/recommendations_section/recommendations_section_mobile.dart';
 import '../ui/sections/about_section/about_section_desktop.dart';
@@ -9,7 +12,6 @@ import '../ui/sections/about_section/about_section_mobile.dart';
 import '../ui/sections/about_section/about_section_tablet.dart';
 import '../ui/sections/certifications_section/certifications_section_mobile.dart';
 import '../ui/sections/certifications_section/certifications_section_tablet.dart';
-import '../ui/sections/contact_section.dart';
 import '../ui/sections/experience_section/experience_section_desktop.dart';
 import '../ui/sections/experience_section/experience_section_mobile.dart';
 import '../ui/sections/experience_section/experience_section_tablet.dart';
@@ -94,5 +96,12 @@ final List<SectionItemWidget> sections = [
       desktop: const RecommendationsSectionDesktop(),
     ),
   ),
-  SectionItemWidget(name: 'Contact', section: const ContactSection()),
+  SectionItemWidget(
+    name: 'Contact',
+    section: Responsive(
+      mobile: const ContactSectionMobile(),
+      tablet: const ContactSectionTablet(),
+      desktop: const ContactSectionDesktop(),
+    ),
+  ),
 ];

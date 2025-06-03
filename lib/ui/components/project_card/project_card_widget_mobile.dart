@@ -109,9 +109,7 @@ class _ProjectCardWidgetMobileState extends State<ProjectCardWidgetMobile> {
                       project.tags
                           .map(
                             (tag) => Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 4.w,
-                              ),
+                              padding: EdgeInsets.symmetric(horizontal: 4.w),
                               child: Chip(
                                 label: Text(
                                   tag,
@@ -136,22 +134,24 @@ class _ProjectCardWidgetMobileState extends State<ProjectCardWidgetMobile> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppButtonWidget(
-                  icon: Icons.code,
-                  title: 'Code',
-                  onPressed: () => launchUrl(Uri.parse(project.link)),
-                  color: AppColors.primary,
-                  style: AppTextStyles.font14White,
-                ),
+                if (project.github != null && project.github!.isNotEmpty)
+                  AppButtonWidget(
+                    icon: Icons.code,
+                    title: 'Code',
+                    onPressed: () => launchUrl(Uri.parse(project.link)),
+                    color: AppColors.primary,
+                    style: AppTextStyles.font14White,
+                  ),
                 SizedBox(width: 10.w),
-                AppButtonWidget(
-                  icon: Icons.open_in_new,
-                  title: 'Live Demo',
-                  onPressed: () => launchUrl(Uri.parse(project.link)),
-                  color: AppColors.primary,
-                hasBorder: true,
-                  style: AppTextStyles.font14White,
-                ),
+                if (project.link.isNotEmpty)
+                  AppButtonWidget(
+                    icon: Icons.open_in_new,
+                    title: 'Live Demo',
+                    onPressed: () => launchUrl(Uri.parse(project.link)),
+                    color: AppColors.primary,
+                    hasBorder: true,
+                    style: AppTextStyles.font14White,
+                  ),
               ],
             ),
           ),

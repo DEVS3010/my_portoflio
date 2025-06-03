@@ -9,7 +9,7 @@ final profile = ProfileModel(
   name: 'Mahmoud Alaa',
   email: 'mahmoud3laa2210@gmail.com',
   experienceYears: '4+',
-  cvLink: 'https://drive.google.com/your-cv-link',
+  cvLink: '',
   logo: 'assets/images/logo.png',
   photo: AppImages.png.profile,
   profile: 'Software Engineer',

@@ -197,7 +197,7 @@ class Footer extends StatelessWidget {
         children: [
           Text(
             '© 2025 Mahmoud Alaa. All rights reserved.',
-            style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+            style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
           SizedBox(height: 12.h),
           TextButton(onPressed: onBackToTop, child: const Text('Back to Top')),

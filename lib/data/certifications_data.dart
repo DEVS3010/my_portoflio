@@ -5,7 +5,7 @@ final certifications = [
     title: 'The AI DIPLOMA (170 HOURS)',
     issuer: 'Instant Software Solutions',
     date: 'Jan 2025',
-    credentialUrl: '', // يمكنك رفع الرابط لاحقًا إذا أردت عرضه
+    credentialUrl: '', 
   ),
 
   CertificationModel(
