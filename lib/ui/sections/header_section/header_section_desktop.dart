@@ -8,7 +8,7 @@ import '../../../../data/portfolio_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/app_text_styles.dart';
-import '../../../core/responsive_helper.dart';
+import '../../../data/projects_data.dart';
 
 class HeaderSectionDesktop extends StatelessWidget {
   const HeaderSectionDesktop({super.key});
@@ -94,9 +94,9 @@ class HeaderSectionDesktop extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildStat("5+", "Experiences"),
+              _buildStat(profile.experienceYears, "Experiences"),
               VerticalDivider(color: AppColors.grey),
-              _buildStat("20+", "Project done"),
+              _buildStat("${projects.length}+", "Project done"),
             ],
           ),
         ),

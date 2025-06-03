@@ -8,11 +8,11 @@ import '../../../../data/portfolio_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/app_text_styles.dart';
-import '../../../core/responsive_helper.dart';
+import '../../../data/projects_data.dart';
 
 class HeaderSectionTablet extends StatelessWidget {
   const HeaderSectionTablet({super.key});
-@override
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 24.w),
@@ -25,13 +25,13 @@ class HeaderSectionTablet extends StatelessWidget {
               children: [
                 SizedBox(height: 40.h),
                 Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(child: _buildText()),
-                      SizedBox(width: 40.w),
-                      _buildPhoto(),
-                    ],
-                  ),
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: _buildText()),
+                    SizedBox(width: 40.w),
+                    _buildPhoto(),
+                  ],
+                ),
               ],
             ),
           );
@@ -93,9 +93,9 @@ class HeaderSectionTablet extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildStat("5+", "Experiences"),
+              _buildStat(profile.experienceYears, "Experiences"),
               VerticalDivider(color: AppColors.grey),
-              _buildStat("20+", "Project done"),
+              _buildStat("${projects.length}+", "Project done"),
             ],
           ),
         ),

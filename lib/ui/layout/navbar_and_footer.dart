@@ -117,7 +117,7 @@ Widget _logoInTheCenter() {
       children: [
         CircleAvatar(
           backgroundColor: AppColors.primary,
-          radius: 18.r,
+          radius: 18,
           child: const Text(
             'M',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -129,7 +129,7 @@ Widget _logoInTheCenter() {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: AppColors.white,
-            fontSize: 16.sp,
+            fontSize: 16,
           ),
         ),
       ],

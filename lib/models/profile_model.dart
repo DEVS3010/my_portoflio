@@ -18,6 +18,7 @@ class ProfileModel {
   final List<SkillModel> skills;
   final List<ExperienceModel> experiences;
   final List<ProjectModel> projects;
+  final String experienceYears;
 
     ProfileModel({
     required this.name,
@@ -33,5 +34,6 @@ class ProfileModel {
     required this.skills,
     required this.experiences,
     required this.projects,
+    required this.experienceYears,
   });
 }

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_portfolio/core/app_colors.dart';
 import 'package:my_portfolio/core/app_text_styles.dart';
 
-import '../../core/responsive_helper.dart';
 
 class AppButtonWidget extends StatelessWidget {
   const AppButtonWidget({
@@ -14,6 +13,7 @@ class AppButtonWidget extends StatelessWidget {
     required this.onPressed,
     this.hasBorder = false,
     this.color,
+    this.style,
   });
 
   final IconData? icon;
@@ -21,9 +21,9 @@ class AppButtonWidget extends StatelessWidget {
   final Color? color;
   final bool hasBorder;
   final Function onPressed;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
-    final isMobile = Responsive.isMobile(context);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         // padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
@@ -40,15 +40,13 @@ class AppButtonWidget extends StatelessWidget {
           if (icon != null)
             Padding(
               padding: EdgeInsets.only(right: 8.0.w),
-              child: Icon(icon, size: 24.0, color: AppColors.white),
+              child: Icon(icon, color: AppColors.white),
             ),
 
           Text(
             title,
-            style:
-                isMobile
-                    ? AppTextStyles.font14White
-                    : AppTextStyles.font21White,
+            style:style?? AppTextStyles.font21White,
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

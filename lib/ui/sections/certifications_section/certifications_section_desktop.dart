@@ -3,14 +3,14 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_portfolio/ui/components/app_button_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../core/app_colors.dart';
-import '../../../data/certifications_data.dart';
-import '../../core/app_text_styles.dart';
-import '../../core/responsive_helper.dart';
-import '../../models/certification_model.dart';
+import '../../../../core/app_colors.dart';
+import '../../../../data/certifications_data.dart';
+import '../../../core/app_text_styles.dart';
+import '../../../core/responsive_helper.dart';
+import '../../../models/certification_model.dart';
 
-class CertificationsSection extends StatelessWidget {
-  const CertificationsSection({super.key});
+class CertificationsSectionDesktop extends StatelessWidget {
+  const CertificationsSectionDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {

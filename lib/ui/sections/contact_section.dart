@@ -27,7 +27,7 @@ class ContactSection extends StatelessWidget {
           SizedBox(
             height: isMobile ? 350.h : null,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Contact Info',

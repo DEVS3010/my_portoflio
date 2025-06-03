@@ -8,33 +8,26 @@ import '../../../../data/portfolio_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/app_text_styles.dart';
-import '../../../core/responsive_helper.dart';
+import '../../../data/projects_data.dart';
 
 class HeaderSectionMobile extends StatelessWidget {
   const HeaderSectionMobile({super.key});
-@override
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 24.w),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return SizedBox(
-            // height: 0.88.sh,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20.h),
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      _buildText(),
-                      _buildPhoto(),
-                    ],
-                  ),
-              ],
+      child: SizedBox(
+        // height: 0.88.sh,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20.h),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [_buildText(), _buildPhoto()],
             ),
-          );
-        },
+          ],
+        ),
       ),
     );
   }
@@ -43,24 +36,34 @@ class HeaderSectionMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Hi I am', style: AppTextStyles.font24Grey),
-        Text(profile.name, style: AppTextStyles.font34PrimaryW600),
+        Text(
+          'Hi I am',
+          style: AppTextStyles.font18.copyWith(color: AppColors.grey),
+        ),
+        Text(
+          profile.name,
+          style: AppTextStyles.font21.copyWith(
+            fontWeight: FontWeight.bold,
+            color: AppColors.primary,
+          ),
+        ),
         SizedBox(height: 8.h),
         RichText(
           text: TextSpan(
-            style: AppTextStyles.font100WhiteBold,
+            style: AppTextStyles.font100WhiteBold.copyWith(fontSize: 50),
             children: [
               TextSpan(text: '${profile.profile.split(' ').first} \n'),
               TextSpan(
                 text:
                     '\t \t \t \t ${profile.profile.split(' ').skip(1).join(' ')}',
-                style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
           ),
         ),
-        Text(profile.profileSummary, style: AppTextStyles.font21White),
-        SizedBox(height: 40.h),
+        Text(profile.profileSummary, style: AppTextStyles.font18.copyWith(
+          color: AppColors.text,
+        )).animate().fadeIn(duration: 500.ms).slideY(begin: 0.2),
+        SizedBox(height: 30.h),
 
         Row(
           children: [
@@ -84,17 +87,18 @@ class HeaderSectionMobile extends StatelessWidget {
         SizedBox(height: 32.h),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
-          height: 150.h,
+          height: 120.h,
           decoration: BoxDecoration(
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(12.r),
+            border: Border.all(color: AppColors.primary, width: 1.w),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildStat("5+", "Experiences"),
-              VerticalDivider(color: AppColors.grey),
-              _buildStat("20+", "Project done"),
+              _buildStat(profile.experienceYears, "Experiences"),
+              VerticalDivider(color: AppColors.primary),
+              _buildStat("${projects.length}+", "Project done"),
             ],
           ),
         ),
@@ -138,7 +142,7 @@ class HeaderSectionMobile extends StatelessWidget {
       children: [
         Text(value, style: AppTextStyles.font24PrimaryBold),
         SizedBox(height: 4.h),
-        Text(label, style: TextStyle(fontSize: 20.sp, color: AppColors.grey)),
+        Text(label, style: AppTextStyles.font16Text),
       ],
     );
   }

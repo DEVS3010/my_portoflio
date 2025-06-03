@@ -41,6 +41,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   device_preview: ^1.2.0
   cached_network_image: ^3.4.1
+  auto_size_text: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -64,6 +65,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+  # D:\Projects\my_portoflio\assets\images\projects\zamzam\zamzam.png
   assets:
     - assets/images/svg/
     - assets/images/png/
@@ -81,6 +83,8 @@ flutter:
     - assets/images/projects/quran-tv/
     - assets/images/projects/qurani-pro/
     - assets/images/projects/zamzam/
+    - assets/images/projects/travel/
+    - assets/images/projects/ar_animal_learning/
 
 
 

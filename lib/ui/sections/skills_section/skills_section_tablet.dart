@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/app_colors.dart';
+import '../../../core/app_text_styles.dart';
+import '../../../core/image_assets.dart';
+import '../../../core/responsive_helper.dart';
 import '../../../data/portfolio_data.dart';
-import '../../core/app_text_styles.dart';
-import '../../core/image_assets.dart';
-import '../../core/responsive_helper.dart';
 
-class SkillsSection extends StatelessWidget {
-  const SkillsSection({super.key});
+class SkillsSectionTablet extends StatelessWidget {
+  const SkillsSectionTablet({super.key});
 
   @override
   Widget build(BuildContext context) {

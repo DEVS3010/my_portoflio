@@ -7,33 +7,36 @@ class AppTextStyles {
   //! To named the text style use this format => font + size + color + weight + fontFamily if needed
   //? ----------------- Font 100 -----------------
   static TextStyle font100WhiteBold = TextStyle(
-    fontSize: 100.sp,
+    fontSize: 100,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
 
   //? ----------------- Font 40 -----------------
   static TextStyle font40WhiteBold = TextStyle(
-    fontSize: 40.sp,
+    fontSize: 40,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
   //? ----------------- Font 34 -----------------
   static TextStyle font34PrimaryW600 = TextStyle(
-    fontSize: 34.0.sp,
+    fontSize: 34.0,
     fontWeight: FontWeight.w600,
     color: AppColors.primary,
   );
-  //? ----------------- Font 34 -----------------
-  static TextStyle font32WhiteBold = TextStyle(
-    fontSize: 32.sp,
+  //? ----------------- Font 32 -----------------
+  static TextStyle font32 = TextStyle(
+    fontSize: 32,
+  );
+  static TextStyle font32WhiteBold = font32.copyWith(
+    fontSize: 32,
     fontWeight: FontWeight.bold,
     color: AppColors.white,
   );
 
   //? ----------------- Font 24 -----------------
   static TextStyle font24 = TextStyle(
-    fontSize: 24.sp,
+    fontSize: 24,
     fontWeight: FontWeight.normal,
   );
 
@@ -44,21 +47,24 @@ class AppTextStyles {
   static TextStyle font24Grey = font24.copyWith(color: AppColors.grey);
   //? ----------------- Font 20 -----------------
   static TextStyle font20PrimaryW600 = TextStyle(
-    fontSize: 20.sp,
+    fontSize: 20,
     fontWeight: FontWeight.w600,
     color: AppColors.primary,
   );
 
   //? ----------------- Font 21 -----------------
-  static TextStyle font21White = TextStyle(
-    fontSize: 21.sp,
+  static TextStyle font21 = TextStyle(
+    fontSize: 21,
+  );
+  static TextStyle font21White = font21 .copyWith(
+    fontSize: 21,
     color: AppColors.white,
     fontWeight: FontWeight.normal,
   );
 
   //? ----------------- Font 18
   static TextStyle font18 = TextStyle(
-    fontSize: 18.sp,
+    fontSize: 18,
     fontWeight: FontWeight.normal,
   );
   static TextStyle font18PrimaryBold = font18.copyWith(
@@ -72,7 +78,7 @@ class AppTextStyles {
 
   //? ----------------- Font 16 -----------------
   static TextStyle font16 = TextStyle(
-    fontSize: 16.sp,
+    fontSize: 16,
     fontWeight: FontWeight.normal,
   );
   static TextStyle font16PrimaryBold = font16.copyWith(
@@ -86,7 +92,7 @@ class AppTextStyles {
   static TextStyle font16Grey = font16.copyWith(color: AppColors.grey);
   //? ----------------- Font 14 -----------------
   static TextStyle font14 = TextStyle(
-    fontSize: 14.sp,
+    fontSize: 14,
     fontWeight: FontWeight.normal,
   );
   static TextStyle font14White = font14.copyWith(color: AppColors.white);
@@ -101,7 +107,7 @@ class AppTextStyles {
 
   //? ----------------- Font 12 -----------------
   static TextStyle font12 = TextStyle(
-    fontSize: 12.sp,
+    fontSize: 12,
     fontWeight: FontWeight.normal,
   );
   static TextStyle font12Text = font12.copyWith(color: AppColors.text);

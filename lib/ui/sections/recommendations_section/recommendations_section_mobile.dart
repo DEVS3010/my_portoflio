@@ -4,18 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
-import '../../core/app_text_styles.dart';
-import '../../core/responsive_helper.dart';
-import '../../data/recommendations_data.dart';
+import '../../../core/app_text_styles.dart';
+import '../../../core/responsive_helper.dart';
+import '../../../data/recommendations_data.dart';
 
-class RecommendationsSection extends StatefulWidget {
-  const RecommendationsSection({super.key});
+class RecommendationsSectionMobile extends StatefulWidget {
+  const RecommendationsSectionMobile({super.key});
 
   @override
-  State<RecommendationsSection> createState() => _RecommendationsSectionState();
+  State<RecommendationsSectionMobile> createState() => _RecommendationsSectionMobileState();
 }
 
-class _RecommendationsSectionState extends State<RecommendationsSection> {
+class _RecommendationsSectionMobileState extends State<RecommendationsSectionMobile> {
   final PageController _pageController = PageController(viewportFraction: 0.85);
   int currentIndex = 0;
 
@@ -143,7 +143,7 @@ class _RecommendationsSectionState extends State<RecommendationsSection> {
                   color:
                       isActive
                           ? AppColors.primary
-                          : AppColors.white.withOpacity(0.3),
+                          : AppColors.white.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(4.r),
                 ),
               );

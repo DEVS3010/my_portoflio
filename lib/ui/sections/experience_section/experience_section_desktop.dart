@@ -3,11 +3,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_portfolio/data/portfolio_data.dart';
 import '../../../core/app_colors.dart';
-import '../../core/app_text_styles.dart';
-import '../../core/responsive_helper.dart';
+import '../../../core/app_text_styles.dart';
+import '../../../core/responsive_helper.dart';
 
-class ExperienceSection extends StatelessWidget {
-  const ExperienceSection({super.key});
+class ExperienceSectionDesktop extends StatelessWidget {
+  const ExperienceSectionDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {

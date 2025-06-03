@@ -6,8 +6,9 @@ class ProjectModel {
   final String link;
   final List<String> tags;
   final bool isFeatured;
-final String? github;
-final String? liveDemo;
+  final String? github;
+  final String? liveDemo;
+  final String? associatedWith;
 
   ProjectModel({
     required this.title,
@@ -19,5 +20,6 @@ final String? liveDemo;
     this.isFeatured = false,
     this.github,
     this.liveDemo,
+    this.associatedWith,
   });
 }
