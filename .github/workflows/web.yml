@@ -18,15 +18,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Web
-        run: flutter build web
-
-      - name: Fix base href for GitHub Pages
-        run: sed -i 's|<base href="/">|<base href="/my_portoflio/">|' build/web/index.html
+      - name: Build Web with base-href
+        run: flutter build web --base-href /my_portoflio/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
-
