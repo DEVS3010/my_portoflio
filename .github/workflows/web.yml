@@ -1,20 +1,29 @@
 name: Deploy Flutter Web to GitHub Pages
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+
       - name: Install dependencies
         run: flutter pub get
-      - name: Build web
+
+      - name: Build Web
         run: flutter build web
+
+      - name: Fix base href for GitHub Pages
+        run: sed -i 's|<base href="/">|<base href="/my_portoflio/">|' build/web/index.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
