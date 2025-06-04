@@ -144,7 +144,7 @@ class _ProjectCardWidgetDesktopState extends State<ProjectCardWidgetDesktop> {
                       title: 'Code',
                       onPressed: () async {
                         log('Launching URL: ${project.github}');
-                        await _launchUrl(project.link);
+                        await _launchUrl(project.github!);
                       },
                       color: AppColors.primary,
                     ),

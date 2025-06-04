@@ -8,7 +8,7 @@ final socialLinks = [
   ),
   SocialIModel(
     icon: AppImages.svg.linkedIn,
-    link: 'https://linkedin.com/in/MahmoudAlaa',
+    link: 'https://www.linkedin.com/in/mahmoudalaa2210/',
   ),
   SocialIModel(
     icon: AppImages.svg.email,

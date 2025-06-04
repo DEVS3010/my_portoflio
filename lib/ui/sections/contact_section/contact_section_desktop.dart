@@ -8,8 +8,25 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../core/app_colors.dart';
 import '../../../core/responsive_helper.dart';
 
-class ContactSectionDesktop extends StatelessWidget {
+class ContactSectionDesktop extends StatefulWidget {
   const ContactSectionDesktop({super.key});
+
+  @override
+  State<ContactSectionDesktop> createState() => _ContactSectionDesktopState();
+}
+
+class _ContactSectionDesktopState extends State<ContactSectionDesktop> {
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _messageController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +60,8 @@ class ContactSectionDesktop extends StatelessWidget {
                 _contactItem(Icons.email, 'mahmoud3laa2210@gmail.com'),
                 _contactItem(Icons.phone, '+966 500000000'),
                 SizedBox(height: 24.h),
-                Text(
-                  'Follow Me',
-                  style: AppTextStyles.font18WhiteBold,
-                ),
-                
+                Text('Follow Me', style: AppTextStyles.font18WhiteBold),
+
                 SizedBox(height: 12.h),
                 Wrap(
                   spacing: 12.w,
@@ -87,16 +101,19 @@ class ContactSectionDesktop extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20.h),
-                _formField('Your Name', Icons.person),
+                _formField('Your Name', Icons.person, _nameController),
                 SizedBox(height: 12.h),
-                _formField('Your Email', Icons.email),
+                _formField('Your Email', Icons.email, _emailController),
                 SizedBox(height: 12.h),
-                _formField('Your message', Icons.message, maxLines: 4),
+                _formField(
+                  'Your message',
+                  Icons.message,
+                  _messageController,
+                  maxLines: 4,
+                ),
                 SizedBox(height: 20.h),
                 ElevatedButton.icon(
-                  onPressed: () {
-                    // Optional: Send logic / mailto
-                  },
+                  onPressed: _sendEmail,
                   icon: Icon(Icons.send, color: AppColors.white),
                   label: Text(
                     'Send Message',
@@ -134,22 +151,23 @@ class ContactSectionDesktop extends StatelessWidget {
     );
   }
 
-  Widget _socialIcon(IconData icon, String link) {
-    return Padding(
-      padding: EdgeInsets.only(right: 12.w),
-      child: InkWell(
-        onTap: () => launchUrl(Uri.parse(link)),
-        child: CircleAvatar(
-          radius: 18.r,
-          backgroundColor: AppColors.white.withValues(alpha: 0.08),
-          child: Icon(icon, size: 16.sp, color: AppColors.white),
-        ),
-      ),
+  Future<void> _sendEmail() async {
+    final subject = Uri.encodeComponent('Portfolio Contact');
+    final body = Uri.encodeComponent(
+      'Name: ${_nameController.text}\nEmail: ${_emailController.text}\n\n${_messageController.text}',
     );
+    final url = 'mailto:mahmoud3laa2210@gmail.com?subject=$subject&body=$body';
+    await launchUrl(Uri.parse(url));
   }
 
-  Widget _formField(String hint, IconData icon, {int maxLines = 1}) {
+  Widget _formField(
+    String hint,
+    IconData icon,
+    TextEditingController controller, {
+    int maxLines = 1,
+  }) {
     return TextFormField(
+      controller: controller,
       maxLines: maxLines,
       style: TextStyle(color: AppColors.white),
       decoration: InputDecoration(

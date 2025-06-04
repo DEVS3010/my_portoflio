@@ -27,6 +27,7 @@ final List<ProjectModel> projects = [
     github: null,
     liveDemo: null,
   ),
+
   ProjectModel(
     title: 'Jamallek',
     description:
@@ -69,8 +70,9 @@ final List<ProjectModel> projects = [
     ],
     isFeatured: true,
     github: 'https://github.com/DEVS3010/Jamallek-Readme-File',
-    liveDemo: 'https://github.com/DEVS3010/Jamallek-Readme-File',
+    liveDemo: null,
   ),
+
   ProjectModel(
     title: 'Easy Learning (AR + ML)',
     description:
@@ -99,7 +101,8 @@ final List<ProjectModel> projects = [
       AppImages.project.arAnimalLearning.p18,
       AppImages.project.arAnimalLearning.p19,
     ],
-    link: '',
+    link:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_flutter-flutterapp-flutterdeveloper-activity-6950979074320138240-5VQr?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpqrqEBdA3JELiRtJ_zsD4UUKpzw0VLpzE',
     tags: [
       'Flutter',
       'Augmented Reality',
@@ -138,7 +141,7 @@ final List<ProjectModel> projects = [
       AppImages.project.alWahab.p11,
     ],
     link:
-        'https://play.google.com/store/apps/details?id=com.devs.al_wahab_quran',
+        'https://www.linkedin.com/posts/mahmoudalaa2210_al-wahab-activity-7272973493636333568-7VH3?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpqrqEBdA3JELiRtJ_zsD4UUKpzw0VLpzE',
     tags: [
       'Flutter',
       'Prayer Times',
@@ -151,8 +154,10 @@ final List<ProjectModel> projects = [
     ],
     isFeatured: true,
     github: 'https://github.com/MahmoudAlaa22/Al-Wahab-Quran-Readme-File',
-    liveDemo: null,
+    liveDemo:
+        'https://play.google.com/store/apps/details?id=com.devs.al_wahab_quran',
   ),
+
   ProjectModel(
     title: 'Password Manager App',
     description:
@@ -179,21 +184,23 @@ final List<ProjectModel> projects = [
       AppImages.project.passwordManager.p11,
       AppImages.project.passwordManager.p12,
     ],
-    link: 'https://github.com/MahmoudAlaa22/make_password_encryption',
+    link:
+        'https://drive.google.com/file/d/1KyH3VHAWIIs6a32l4latGWHLAhBc-2FF/view?usp=sharing',
     tags: ['Flutter', 'Dart', 'Firebase', 'CI/CD', 'Security'],
     isFeatured: true,
-    github: 'https://github.com/MahmoudAlaa22/make_password_encryption',
+    github: 'https://github.com/MahmoudAlaa22/Password-Manager-App-Readme-file',
     liveDemo:
-        'https://github.com/MahmoudAlaa22/make_password_encryption/assets/60518534/e88188ab-c577-4606-907c-91f6241d5d76',
+        'https://drive.google.com/file/d/1KyH3VHAWIIs6a32l4latGWHLAhBc-2FF/view?usp=sharing',
   ),
 
   ProjectModel(
     title: 'ZamZam',
     description:
-        'مساعد المعتمر الذكي (زمزم)\nتطوير نظام ذكاء اصطناعي تفاعلي متعدد اللغات يوفر استجابات سريعة و مخصصة للمستخدمين',
+        'ZamZam is a smart, AI-powered mobile application designed to enhance the experience of pilgrims (Hajj & Umrah). The app leverages modern technology to guide, assist, and support users throughout their spiritual journey in Makkah and Madinah.',
     image: AppImages.project.zamzam.zamzam,
     images: [AppImages.project.zamzam.zamzam],
-    link: '',
+    link:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_aetaebaepaeqaeqaerabraepaesaeyaeraepaejabraepaesaepaedaefaeuaepaehaeyabraepaeyabraepaesaehaetaezaer-activity-7192601529223172096-f9m6?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpqrqEBdA3JELiRtJ_zsD4UUKpzw0VLpzE',
     tags: [
       'Flutter',
       'Artificial Intelligence (AI)',
@@ -224,34 +231,7 @@ final List<ProjectModel> projects = [
     link: '',
     tags: ['Flutter', 'Dart', 'BLoC', 'Streaming', 'Localization'],
     isFeatured: true,
-    github: null,
-    liveDemo: null,
-  ),
-  
-  ProjectModel(
-    title: 'Prayer Times App',
-    description:
-        'Prayer Times is a modern, elegant, and spiritually inspired Flutter app that provides accurate daily Islamic prayer times.\n'
-        '✓ Accurate times for Fajr, Dhuhr, Asr, Maghrib, and Isha.\n'
-        '✓ Animated countdown to next prayer.\n'
-        '✓ Multi-language (AR/EN) and RTL support.\n'
-        '✓ Beautiful Islamic UI with light/dark mode.\n'
-        '✓ Customizable Adhan notifications.\n'
-        '✓ Built with Clean Architecture and modular structure.',
-    image: AppImages.project.prayerTimes.p1,
-    images: [AppImages.project.prayerTimes.p1],
-    link: '', // Add Play Store or GitHub repo if available
-    tags: [
-      'Flutter',
-      'Dart',
-      'BLoC',
-      'Localization',
-      'Clean Architecture',
-      'Prayer Times',
-      'Notifications',
-    ],
-    isFeatured: true,
-    github: null,
+    github: 'https://github.com/DEVS3010/Quran-TV-Readme-File',
     liveDemo: null,
   ),
 
@@ -282,14 +262,68 @@ final List<ProjectModel> projects = [
       AppImages.project.ecommerce.orderSuccess,
     ],
     link:
-        'https://github.com/MahmoudAlaa22/E-Commerce-Readme-file-/blob/main/README.md',
+        'https://www.linkedin.com/posts/mahmoudalaa2210_tdd-bloc-flutterabrbloc-activity-6993572439372775424-Jabx',
     tags: ['Flutter', 'Dart', 'REST APIs', 'E-Commerce', 'Localization'],
     isFeatured: true,
-    github: 'https://github.com/MahmoudAlaa22/E-Commerce-Readme-file-',
+    github:
+        'https://github.com/MahmoudAlaa22/E-Commerce-Readme-file-/tree/main',
     liveDemo:
         'https://www.linkedin.com/posts/mahmoudalaa2210_tdd-bloc-flutterabrbloc-activity-6993572439372775424-Jabx',
   ),
 
+  ProjectModel(
+    title: 'DEVS Notes',
+    description:
+        'Developed a note-taking application that uses a local database (Sqflite) and includes a CRUD system, with features like:\n'
+        '✓ Light and dark modes.\n✓ Ability to write, record, attach pictures, and draw notes.\n'
+        '✓ Ability to change the color of notes.\n✓ Support for Arabic and English languages.\n'
+        '✓ Responsive design suitable for all screen sizes.',
+    image: AppImages.project.devsNotes.devsNotes,
+    images: [
+      AppImages.project.devsNotes.devsNotes,
+      AppImages.project.devsNotes.splash,
+      AppImages.project.devsNotes.home,
+      AppImages.project.devsNotes.drawer,
+      AppImages.project.devsNotes.addNote,
+      AppImages.project.devsNotes.drawing,
+      AppImages.project.devsNotes.searching,
+    ],
+    link:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_bloc-flutterabrbloc-sqflite-activity-7005512754648264705-AdpS',
+    tags: ['Flutter', 'Dart', 'Databases', 'Lottie', 'Animation'],
+    isFeatured: false,
+    github: 'https://github.com/MahmoudAlaa22/DEVS-Notes-Readme-file',
+    liveDemo:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_bloc-flutterabrbloc-sqflite-activity-7005512754648264705-AdpS',
+  ),
+
+  ProjectModel(
+    title: 'Celeste (Weather App)',
+    description:
+        "Developed an application that displays the weather for any location worldwide, with features such as:\n"
+        "✓ Ease of use.\n✓ Responsive design suitable for all screen sizes.\n✓ Temperature display.\n"
+        "✓ Percentage of clouds, humidity, and wind.\n✓ Ability to search for any city's temperature.",
+    image: AppImages.project.celeste.celeste,
+    images: [
+      AppImages.project.celeste.celeste,
+      AppImages.project.celeste.splash,
+      AppImages.project.celeste.home,
+      AppImages.project.celeste.drawer,
+      AppImages.project.celeste.rain,
+      AppImages.project.celeste.clouds,
+      AppImages.project.celeste.thunderstorm,
+      AppImages.project.celeste.snow,
+      AppImages.project.celeste.snower,
+      AppImages.project.celeste.mist,
+    ],
+    link:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_stateabrmanagement-api-requests-activity-6978941210748989440-Kffd',
+    tags: ['Flutter', 'Dart', 'OpenWeather API', 'Lottie', 'GetX'],
+    isFeatured: false,
+    github: 'https://github.com/MahmoudAlaa22/WeatherApp-Readme-file',
+    liveDemo:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_stateabrmanagement-api-requests-activity-6978941210748989440-Kffd',
+  ),
   ProjectModel(
     title: 'Qurani Pro',
     description:
@@ -331,58 +365,6 @@ final List<ProjectModel> projects = [
   ),
 
   ProjectModel(
-    title: 'DEVS Notes',
-    description:
-        'Developed a note-taking application that uses a local database (Sqflite) and includes a CRUD system, with features like:\n'
-        '✓ Light and dark modes.\n✓ Ability to write, record, attach pictures, and draw notes.\n'
-        '✓ Ability to change the color of notes.\n✓ Support for Arabic and English languages.\n'
-        '✓ Responsive design suitable for all screen sizes.',
-    image: AppImages.project.devsNotes.devsNotes,
-    images: [
-      AppImages.project.devsNotes.devsNotes,
-      AppImages.project.devsNotes.splash,
-      AppImages.project.devsNotes.home,
-      AppImages.project.devsNotes.drawer,
-      AppImages.project.devsNotes.addNote,
-      AppImages.project.devsNotes.drawing,
-      AppImages.project.devsNotes.searching,
-    ],
-    link: 'https://github.com/MahmoudAlaa22/DEVS-Notes-Readme-file',
-    tags: ['Flutter', 'Dart', 'Databases', 'Lottie', 'Animation'],
-    isFeatured: false,
-    github: 'https://github.com/MahmoudAlaa22/DEVS-Notes-Readme-file',
-    liveDemo:
-        'https://www.linkedin.com/posts/mahmoudalaa2210_bloc-flutterabrbloc-sqflite-activity-7005512754648264705-AdpS',
-  ),
-
-  ProjectModel(
-    title: 'Celeste (Weather App)',
-    description:
-        "Developed an application that displays the weather for any location worldwide, with features such as:\n"
-        "✓ Ease of use.\n✓ Responsive design suitable for all screen sizes.\n✓ Temperature display.\n"
-        "✓ Percentage of clouds, humidity, and wind.\n✓ Ability to search for any city's temperature.",
-    image: AppImages.project.celeste.celeste,
-    images: [
-      AppImages.project.celeste.celeste,
-      AppImages.project.celeste.splash,
-      AppImages.project.celeste.home,
-      AppImages.project.celeste.drawer,
-      AppImages.project.celeste.rain,
-      AppImages.project.celeste.clouds,
-      AppImages.project.celeste.thunderstorm,
-      AppImages.project.celeste.snow,
-      AppImages.project.celeste.snower,
-      AppImages.project.celeste.mist,
-    ],
-    link: 'https://github.com/MahmoudAlaa22/WeatherApp-Readme-file',
-    tags: ['Flutter', 'Dart', 'OpenWeather API', 'Lottie', 'GetX'],
-    isFeatured: false,
-    github: 'https://github.com/MahmoudAlaa22/WeatherApp-Readme-file',
-    liveDemo:
-        'https://www.linkedin.com/posts/mahmoudalaa2210_stateabrmanagement-api-requests-activity-6978941210748989440-Kffd',
-  ),
-
-  ProjectModel(
     title: 'El-Ogra – الاجرة',
     description:
         "Developed an application that helps users collect fares and return the exact amount to each account.\n"
@@ -399,7 +381,8 @@ final List<ProjectModel> projects = [
       AppImages.project.elOgra.thePaymentWasMade,
       AppImages.project.elOgra.anErrorOccurred,
     ],
-    link: 'https://github.com/MahmoudAlaa22/El-Ogra-Readme-file',
+    link:
+        'https://www.linkedin.com/posts/mahmoudalaa2210_new-achievement-disclaimer-activity-6974096037988700160-Oy__',
     tags: ['Flutter', 'Dart', 'Lottie', 'GetX', 'Responsive UI'],
     isFeatured: false,
     github: 'https://github.com/MahmoudAlaa22/El-Ogra-Readme-file',
@@ -414,10 +397,36 @@ final List<ProjectModel> projects = [
     image: AppImages.project.flutterAnimationCV.flutterCV,
     images: [AppImages.project.flutterAnimationCV.flutterCV],
     link:
-        'https://github.com/MahmoudAlaa22/flutter-animation-CV-Readme-fle/blob/main/README.md',
+        'https://www.linkedin.com/posts/mahmoudalaa2210_flutter-flutterapp-flutterdeveloper-activity-7022355986648580096-5RWr?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpqrqEBdA3JELiRtJ_zsD4UUKpzw0VLpzE',
     tags: ['Flutter', 'Dart', 'Animation', 'Web Applications', 'GitHub'],
     isFeatured: false,
     github: 'https://github.com/MahmoudAlaa22/flutter-animation-CV-Readme-fle',
+    liveDemo: null,
+  ),
+  ProjectModel(
+    title: 'Prayer Times App',
+    description:
+        'Prayer Times is a modern, elegant, and spiritually inspired Flutter app that provides accurate daily Islamic prayer times.\n'
+        '✓ Accurate times for Fajr, Dhuhr, Asr, Maghrib, and Isha.\n'
+        '✓ Animated countdown to next prayer.\n'
+        '✓ Multi-language (AR/EN) and RTL support.\n'
+        '✓ Beautiful Islamic UI with light/dark mode.\n'
+        '✓ Customizable Adhan notifications.\n'
+        '✓ Built with Clean Architecture and modular structure.',
+    image: AppImages.project.prayerTimes.p1,
+    images: [AppImages.project.prayerTimes.p1],
+    link: '', // Add Play Store or GitHub repo if available
+    tags: [
+      'Flutter',
+      'Dart',
+      'BLoC',
+      'Localization',
+      'Clean Architecture',
+      'Prayer Times',
+      'Notifications',
+    ],
+    isFeatured: true,
+    github: null,
     liveDemo: null,
   ),
 ];

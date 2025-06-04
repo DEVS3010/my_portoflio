@@ -5,7 +5,7 @@ final certifications = [
     title: 'The AI DIPLOMA (170 HOURS)',
     issuer: 'Instant Software Solutions',
     date: 'Jan 2025',
-    credentialUrl: '', 
+    credentialUrl: 'https://drive.google.com/file/d/1if75DBmKaDt_O8WEbzXWBc6WFOGclMX_/view?usp=sharing', 
   ),
 
   CertificationModel(
@@ -44,13 +44,13 @@ final certifications = [
     title: 'IOT',
     issuer: 'Information Technology Institute (ITI)',
     date: 'Jul 2022',
-    credentialUrl: 'https://bit.ly/3X4qouG',
+    credentialUrl: 'https://user-images.githubusercontent.com/60518534/214839590-db72c5f4-21d9-4e4f-b4f7-96ea6177f748.jpg',
   ),
 
   CertificationModel(
     title: 'Embedded System',
     issuer: 'Information Technology Institute (ITI)',
     date: 'Aug 2021',
-    credentialUrl: 'https://bit.ly/3N6qwW1',
+    credentialUrl: 'https://user-images.githubusercontent.com/60518534/214839676-a2e1a86b-2a40-43f6-8e84-4df48f41727f.jpg',
   ),
 ];

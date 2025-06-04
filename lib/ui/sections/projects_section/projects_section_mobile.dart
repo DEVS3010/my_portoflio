@@ -5,7 +5,6 @@ import 'package:my_portfolio/ui/components/project_card/project_card_widget_mobi
 import '../../../core/app_colors.dart';
 import '../../../core/app_text_styles.dart';
 import '../../../data/portfolio_data.dart';
-import '../../../core/responsive_helper.dart';
 
 class ProjectsSectionMobile extends StatefulWidget {
   const ProjectsSectionMobile({super.key});

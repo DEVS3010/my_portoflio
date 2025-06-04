@@ -141,6 +141,7 @@ class _ProjectCardWidgetMobileState extends State<ProjectCardWidgetMobile> {
                     icon: Icons.code,
                     title: 'Code',
                     onPressed: () async {
+                      log('Launching URL: ${project.github}');
                       await _launchUrl(project.github!);
                     },
                     color: AppColors.primary,

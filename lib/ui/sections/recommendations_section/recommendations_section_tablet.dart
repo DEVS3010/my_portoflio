@@ -23,7 +23,6 @@ class _RecommendationsSectionTabletState
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 64.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

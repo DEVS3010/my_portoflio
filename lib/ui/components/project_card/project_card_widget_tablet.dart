@@ -142,7 +142,7 @@ class _ProjectCardWidgetTabletState extends State<ProjectCardWidgetTablet> {
                   icon: Icons.code,
                   title: 'Code',
                   onPressed: () async {
-                    _launchUrl(project.link);
+                    _launchUrl(project.github!);
                   },
                   color: AppColors.primary,
                 ),
